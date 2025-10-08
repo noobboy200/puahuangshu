@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+<head>
+  <!-- =============================
+       百萬級個人介紹單檔模板｜可讀但「單行CSS」版 v3
+       - 風格：每個 CSS 規則一行（非每個分號換行）
+       - 標示：REPLACE START / REPLACE END 提醒你要改的區塊
+       - 功能：深/淺色主題、RWD、SEO/OG、Search Console、GA4、JSON-LD、入場動畫、技能條、作品卡、表單
+       ============================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b0c10" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- REPLACE START: <title> 與 <meta name="description"> -->
+  <title>你的名字｜個人介紹｜作品集｜聯絡</title>
+  <meta name="description" content="高品質個人介紹範本：展示自我、技能、經歷與作品，內建 SEO／GA4／深淺色、效能優化。" />
+  <!-- REPLACE END -->
+
+  <!-- Search Console 驗證碼 -->
+  <!-- REPLACE START: Search Console Verification -->
+  <meta name="google-site-verification" content="PASTE_YOUR_CODE" />
+  <!-- REPLACE END: Search Console Verification -->
+
+  <!-- Open Graph / Twitter -->
+  <!-- REPLACE START: Social Meta -->
+  <meta property="og:title" content="你的名字｜個人介紹" />
+  <meta property="og:description" content="高品質個人網站：作品、經歷、聯絡。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- REPLACE END: Social Meta -->
+
+  <link rel="canonical" href="https://your-domain.example/" />
+
+  <style>
+    /* =====================================
+       全站樣式（規則單行；易全域搜尋/替換）
+       你的既有 RWD 斷點：980px / 640px
+       ===================================== */
+
+    /* 基礎重置與版面 */
+    *,*::before,*::after{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth} body{margin:0;font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:radial-gradient(1200px 800px at 100% -10%,#0ea5e9 0%,transparent 55%),radial-gradient(1200px 800px at -10% 0%,#06b6d4 0%,transparent 55%),var(--bg)}
+
+    /* 色票：深色預設；.light = 淺色 */
+    :root{--bg:#0b0c10;--card:#0f1218;--muted:#9aa4b2;--text:#eef2f7;--line:#1f2430;--brand:#22d3ee;--brand-2:#60a5fa;--accent:#f59e0b;--ok:#10b981;--bad:#ef4444;--ring:0 0 0 3px rgba(34,211,238,.25)}
+    :root.light{--bg:#fafafe;--card:#ffffff;--muted:#55626f;--text:#101318;--line:#e6ebf2;--brand:#0ea5e9;--brand-2:#6366f1;--accent:#b45309;--ok:#0f766e;--bad:#b91c1c;--ring:0 0 0 3px rgba(14,165,233,.25)}
+
+    /* 小工具類 */
+    .container{max-width:1120px;margin:0 auto;padding:0 20px} .grid{display:grid;gap:28px} .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card{background:color-mix(in oklab,var(--card) 98%,transparent 2%);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.18);backdrop-filter:saturate(1.1) blur(6px)}
+    .card.pad{padding:24px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid color-mix(in oklab,currentColor 18%,transparent);text-decoration:none;color:var(--text);background:linear-gradient(180deg,color-mix(in oklab,var(--brand) 15%,transparent),transparent);box-shadow:0 8px 30px rgba(0,0,0,.25);transition:transform .2s ease,box-shadow .2s ease,background .3s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff}
+    .btn.ghost{background:transparent}
+    .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 90%,transparent 10%);font-size:12px;color:var(--muted)}
+    .muted{color:var(--muted)} .lead{font-size:18px;color:var(--muted)} .title{font-size:38px;line-height:1.2;margin:0 0 12px} .subtitle{font-size:22px;color:var(--muted);margin:0 0 22px} .tag{font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+    .section{padding:80px 0;border-top:1px dashed var(--line)}
+    .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* 導覽列 */
+    header.site{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,color-mix(in oklab,var(--bg) 85%,transparent),transparent);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .nav .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px color-mix(in oklab,var(--brand) 60%,transparent)}
+    .nav a{color:var(--muted);text-decoration:none} .nav a:hover{color:var(--text)}
+    .nav .links{display:flex;align-items:center;gap:18px}
+    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:transparent}
+
+    /* Hero */
+    .hero{padding:120px 0 80px} .hero h1{font-size:54px;line-height:1.1;margin:0 0 14px;background:linear-gradient(135deg,#fff,color-mix(in oklab,var(--brand) 20%,#fff));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+    .kpi{padding:18px;border:1px dashed var(--line);border-radius:16px;text-align:center} .kpi strong{font-size:22px}
+
+    /* About */
+    .about .grid{grid-template-columns:260px 1fr;align-items:start}
+    .kv{display:flex;flex-direction:column;gap:14px}
+    .avatar{width:128px;height:128px;border-radius:24px;display:block;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),transparent),conic-gradient(from 0deg,var(--brand),var(--brand-2),var(--accent),var(--brand));mask:radial-gradient(circle at 50% 50%,#000 62%,transparent 63%) top left,radial-gradient(circle at 50% 50%,#000 61%,transparent 62%) bottom right;background-size:100% 100%;box-shadow:inset 0 0 40px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.25)}
+    .about .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .bar{height:10px;border-radius:999px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid var(--line);overflow:hidden} .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0}
+
+    /* Timeline */
+    .timeline{position:relative} .timeline::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;background:var(--line)}
+    .step{position:relative;display:grid;grid-template-columns:28px 1fr;gap:14px} .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
+
+    /* Works */
+    .works .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .work{overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card);transition:transform .25s ease,box-shadow .25s ease}
+    .work:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+    .work .thumb{position:relative} .work .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.45))}
+    .work h3{position:absolute;left:14px;bottom:10px;margin:0;font-size:16px;color:#fff;text-shadow:0 4px 16px rgba(0,0,0,.5)}
+    .ratio{position:relative;display:block;width:100%;padding-top:62%} .ratio>*{position:absolute;inset:0}
+
+    /* Testimonials */
+    .say{display:grid;grid-template-columns:70px 1fr;gap:14px} .say .avatar{width:70px;height:70px;border-radius:50%}
+
+    /* Contact */
+    form.contact{display:grid;gap:12px} .in{display:grid;gap:6px}
+    .in input,.in textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 96%,transparent);color:var(--text)}
+    .in input:focus,.in textarea:focus{outline:none;box-shadow:var(--ring)} .in small{color:var(--muted)}
+
+    /* Footer */
+    footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--line)} footer .legal{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+
+    /* RWD */
+    @media(max-width:980px){.hero{padding:90px 0 60px} .about .grid{grid-template-columns:1fr} .works .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:640px){.nav .links{display:none} .hero h1{font-size:38px} .hero .kpis{grid-template-columns:1fr} .works .grid{grid-template-columns:1fr}}
+
+    /* 入場動畫 */
+    .reveal{opacity:0;transform:translateY(16px);transition:all .6s cubic-bezier(.22,1,.36,1)} .reveal.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <b class="logo" aria-hidden="true"></b>
+        <a href="#home" class="muted" aria-label="回到首頁"><strong>你的名字</strong>｜個人網站</a>
+      </div>
+      <nav class="links" aria-label="主導覽">
+        <a href="#about">關於我</a><a href="#skills">技能</a><a href="#xp">經歷</a><a href="#works">作品</a><a href="#contact">聯絡</a>
+      </nav>
+      <button class="theme-toggle" id="themeBtn" aria-label="切換深淺色">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.95 6.95-1.41-1.41M7.46 7.46 6.05 6.05m11.31-1.41-1.41 1.41M7.46 16.54 6.05 17.95" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="section hero container reveal">
+      <span class="tag">個人網站模板</span>
+      <!-- REPLACE START: Hero 文案與 CTA -->
+      <h1>你好，我是<span style="white-space:nowrap">你的名字</span>。<br/>打造結合<span style="white-space:nowrap">設計 × 效能 × 商業</span>的數位體驗。</h1>
+      <p class="lead">專注單檔 HTML / 登陸頁 / 企業小官網與品牌形象。SEO 與 RWD 最佳化，支援 GA4、Search Console 與表單整合。</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="#contact">取得聯絡</a><a class="btn ghost" href="#works">查看作品</a><a class="btn ghost" href="/cv.pdf" download>下載履歷</a></div>
+      <!-- REPLACE END: Hero 文案與 CTA -->
+      <div class="kpis">
+        <div class="kpi card"><div class="muted">完成專案</div><strong>52+</strong></div>
+        <div class="kpi card"><div class="muted">平均交付</div><strong>7~14 天</strong></div>
+        <div class="kpi card"><div class="muted">客戶滿意</div><strong>98%</strong></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section container about grid reveal">
+      <div class="kv">
+        <!-- REPLACE START: 大頭貼與聯絡方式 -->
+        <img class="avatar" alt="個人大頭照" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='100%25' height='100%25' rx='24' ry='24' fill='%2300c2ff'/%3E%3Ctext x='50%25' y='58%25' fill='white' dominant-baseline='middle' text-anchor='middle' font-size='42' font-family='Segoe UI'%3E你%3C/text%3E%3C/svg%3E" />
+        <div><div class="chip">可接案｜遠端/桃園</div></div>
+        <div><a class="btn ghost" href="mailto:you@example.com">you@example.com</a></div>
+        <!-- REPLACE END -->
+      </div>
+      <div class="card pad">
+        <h2 class="title">關於我</h2>
+        <p class="subtitle">用務實的工程與美學，解鎖可維護、可轉換的網站。</p>
+        <div class="facts">
+          <div><div class="muted">定位</div><strong>前端 / 視覺設計</strong></div>
+          <div><div class="muted">強項</div><strong>單檔 HTML｜SEO｜效能</strong></div>
+          <div><div class="muted">工具</div><strong>VS Code｜Figma｜GitHub</strong></div>
+          <div><div class="muted">語言</div><strong>中文 / English</strong></div>
+        </div>
+        <p class="muted" style="margin-top:12px">我相信「簡潔可維護」能創造長期價值。專案慣用：語意化 HTML、輕量 CSS、低耦合 JS，並在 GA4 與 Search Console 中持續優化轉換。</p>
+      </div>
+    </section>
+
+    <!-- Skills / Services -->
+    <section id="skills" class="section container grid reveal" style="grid-template-columns:1fr 1fr">
+      <div class="card pad">
+        <h2 class="title">技能組合</h2>
+        <p class="subtitle">核心能力與熟悉工具</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <span class="chip">HTML / WAI-ARIA</span><span class="chip">CSS / RWD</span><span class="chip">JS / 性能最佳化</span><span class="chip">SEO / 結構化資料</span><span class="chip">GA4 / Search Console</span><span class="chip">Cloudflare Pages</span>
+        </div>
+        <div class="in"><label class="muted">語意化 / 可維護</label><div class="bar" data-pct="92"><i></i></div></div>
+        <div class="in"><label class="muted">效能 / 速度</label><div class="bar" data-pct="90"><i></i></div></div>
+        <div class="in"><label class="muted">SEO / 架構</label><div class="bar" data-pct="88"><i></i></div></div>
+        <div class="in"><label class="muted">UI / 動效</label><div class="bar" data-pct="84"><i></i></div></div>
+      </div>
+      <div class="card pad">
+        <h2 class="title">服務內容</h2>
+        <ul class="muted" style="margin:0;padding-left:18px">
+          <li>個人品牌／履歷／作品集單檔網站</li>
+          <li>企業小官網與登陸頁（含表單）</li>
+          <li>SEO 結構化資料與文案優化</li>
+          <li>GA4／Search Console 設定與追蹤</li>
+          <li>轉換率提升（速度、UX 與 A/B 假設）</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="xp" class="section container reveal">
+      <h2 class="title">經歷里程</h2>
+      <div class="timeline grid" style="gap:22px">
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>自由工作者｜前端設計</strong><div class="muted">2023–至今｜遠端</div><p class="muted">為中小型品牌打造單檔網站與登陸頁，兼顧 SEO 與效能，提升轉換。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>某公司｜前端工程師</strong><div class="muted">2021–2023｜台北</div><p class="muted">負責行銷頁與設計系統落地，導入 Lighthouse 與 GA 觀測，頁速 90+。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>某實習｜UI/UX</strong><div class="muted">2020–2021｜桃園</div><p class="muted">建立設計規範與元件，優化新手流程，跳出率下降 18%。</p></div></div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section id="works" class="section container works reveal">
+      <h2 class="title">作品精選</h2>
+      <p class="subtitle">以下為示意卡片，可替換連結與縮圖</p>
+      <div class="grid">
+        <!-- REPLACE START: 作品卡（複製此 <article> 區塊新增） -->
+        <article class="work">
+          <a href="#" class="thumb ratio" aria-label="作品一">
+            <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='740'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%230ea5e9'/%3E%3Cstop offset='.7' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
+            <h3>品牌登陸頁（示意）</h3>
+          </a>
+        </article>
+        <article class="work">
+          <a href="#" class="thumb ratio" aria-label="作品二">
+            <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='740'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3Ccircle cx='55%25' cy='40%25' r='240' fill='%230ea5e9'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
+            <h3>個人作品集（示意）</h3>
+          </a>
+        </article>
+        <article class="work">
+          <a href="#" class="thumb ratio" aria-label="作品三">
+            <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='740'%3E%3Crect width='100%25' height='100%25' fill='%231c1917'/%3E%3Crect x='10%25' y='18%25' width='80%25' height='64%25' rx='20' ry='20' fill='%23ffffff10' stroke='%23ffffff20'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
+            <h3>企業小官網（示意）</h3>
+          </a>
+        </article>
+        <!-- REPLACE END: 作品卡 -->
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section container reveal">
+      <h2 class="title">客戶回饋</h2>
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="card pad say">
+          <img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%2360a5fa'/%3E%3C/svg%3E" />
+          <div><p>「頁面速度快、SEO 也顧到，溝通順暢很放心。」</p><div class="muted">— 某品牌行銷</div></div>
+        </div>
+        <div class="card pad say">
+          <img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%23f59e0b'/%3E%3C/svg%3E" />
+          <div><p>「單檔維護超簡單，GA4 追蹤轉換很有幫助。」</p><div class="muted">— 中小企業主</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container grid reveal" style="grid-template-columns:1.2fr .8fr;align-items:start">
+      <form class="card pad contact" method="post" action="https://api.web3forms.com/submit" id="contactForm">
+        <h2 class="title">聯絡我</h2>
+        <p class="subtitle">你可描述需求、預算與時程</p>
+        <!-- REPLACE START: 表單 Key 與欄位 -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+        <input type="checkbox" name="botcheck" class="sr" tabindex="-1" autocomplete="off" />
+        <div class="grid-2">
+          <div class="in"><label>你的名字</label><input required name="name" placeholder="王小明" /></div>
+          <div class="in"><label>電子郵件</label><input required type="email" name="email" placeholder="you@example.com" /></div>
+        </div>
+        <div class="in"><label>需求主旨</label><input required name="subject" placeholder="個人網站製作" /></div>
+        <div class="in"><label>需求內容</label><textarea required name="message" rows="6" placeholder="請描述想要的風格、頁數、功能與預算範圍"></textarea><small>送出即同意以信件回覆此詢問。</small></div>
+        <button class="btn primary" type="submit">送出需求</button>
+        <div id="formMsg" class="muted" role="status" aria-live="polite"></div>
+        <!-- REPLACE END: 表單 Key 與欄位 -->
+      </form>
+      <aside class="card pad">
+        <h3 class="title" style="font-size:22px">快速資訊</h3>
+        <!-- REPLACE START: 聯絡資訊 -->
+        <div style="display:grid;gap:8px">
+          <div><div class="muted">Email</div><a href="mailto:you@example.com">you@example.com</a></div>
+          <div><div class="muted">地點</div><div>台灣｜桃園</div></div>
+          <div><div class="muted">社群</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="chip" href="#">LinkedIn</a><a class="chip" href="#">GitHub</a><a class="chip" href="#">YouTube</a></div></div>
+        </div>
+        <!-- REPLACE END: 聯絡資訊 -->
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container legal">
+      <div>© <span id="year"></span> 你的名字｜All rights reserved.</div>
+      <div style="display:flex;gap:10px"><a class="muted" href="#home">回到頂部 ↑</a><button class="muted" id="modeMini" style="background:none;border:none;cursor:pointer">深/淺</button></div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== 主題切換（IIFE；單行語法） ===== */
+    (()=>{const r=document.documentElement,g=()=>localStorage.getItem("theme-mode"),s=m=>localStorage.setItem("theme-mode",m),a=m=>{r.classList.toggle("light",m==="light");r.classList.toggle("dark",m==="dark")};let m=g();if(!m){m=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';s(m)}a(m);const t=()=>{const m=r.classList.contains("light")?"dark":"light";a(m);s(m)};document.getElementById("themeBtn").addEventListener("click",t);document.getElementById("modeMini").addEventListener("click",t)})();
+
+    /* ===== 技能進度條（IntersectionObserver） ===== */
+    (()=>{const bars=[...document.querySelectorAll(".bar")],io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const pct=e.target.getAttribute("data-pct")||0;e.target.querySelector("i").style.width=pct+"%";io.unobserve(e.target)}})},{threshold:.4});bars.forEach(b=>io.observe(b))})();
+
+    /* ===== 入場 reveal ===== */
+    (()=>{const els=[...document.querySelectorAll(".reveal")],io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}})},{threshold:.2});els.forEach(el=>io.observe(el))})();
+
+    /* ===== 年份 ===== */
+    (()=>{document.getElementById("year").textContent=new Date().getFullYear()})();
+
+    /* ===== 表單提交（Web3Forms / 可改成你自己的 API） ===== */
+    (()=>{const f=document.getElementById("contactForm"),msg=document.getElementById("formMsg");if(!f)return;f.addEventListener("submit",async ev=>{ev.preventDefault();msg.textContent="送出中…";try{const fd=new FormData(f),res=await fetch(f.action,{method:"POST",body:fd});if(res.ok){msg.textContent="已成功送出，將盡速回覆，謝謝！";f.reset()}else{msg.textContent="送出失敗，請稍後再試或直接來信。"}}catch(e){msg.textContent="網路異常，請稍後再試。"}})})();
+  </script>
+
+  <!-- 結構化資料（Person JSON-LD；REPLACE） -->
+  <!-- REPLACE START: JSON-LD -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"你的名字","url":"https://your-domain.example/","image":"https://your-domain.example/me.jpg","sameAs":["https://www.linkedin.com/in/yourid","https://github.com/yourid"],"jobTitle":"前端設計 / 開發","knowsAbout":["HTML","CSS","JavaScript","SEO","GA4"],"worksFor":{"@type":"Organization","name":"Freelance"}}</script>
+  <!-- REPLACE END: JSON-LD -->
+
+  <!-- GA4（使用你提供的 Measurement ID；可更換） -->
+  <!-- REPLACE START: GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW45DN2QZE"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-ZW45DN2QZE");</script>
+  <!-- REPLACE END: GA4 Measurement ID -->
+</body>
+</html>
