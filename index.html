@@ -2,9 +2,9 @@
 <html lang="zh-Hant" class="no-js">
 <head>
   <!-- =============================
-       百萬級個人介紹單檔模板｜創新優化 v4
+       百萬級個人介紹單檔模板｜創新優化 v5（已套用：潘皇書）
        目標：連貫背景、高對比（特別是淺色模式）、創新版面、Header 全程固定
-       風格：每個 CSS 規則一行（非每個分號換行）；關鍵區域以 REPLACE START / END 標示
+       規則：CSS 每個規則一行；REPLACE START / END 區塊提醒可改
        ============================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -13,24 +13,24 @@
   <meta name="robots" content="index,follow" />
 
   <!-- REPLACE START: <title> 與 <meta name="description"> -->
-  <title>你的名字｜個人介紹｜作品集｜聯絡</title>
-  <meta name="description" content="高質感個人介紹與作品集：創新版面、全程固定導覽、深/淺色高對比、SEO/OG/GA4 完整配置。" />
+  <title>潘皇書｜個人介紹｜作品集｜聯絡</title>
+  <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）— 自我介紹與作品：投資自 2020 年起，歷年平均報酬約 27%，擅長市場與公司分析；學習前端與 Figma、AI（ChatGPT/Gemini）中上；曾於餐飲業兼職 5 年、電子廠 3 個月、中租實習與會計實習經驗。" />
   <!-- REPLACE END -->
 
-  <!-- Search Console 驗證碼 -->
+  <!-- Search Console 驗證碼（改成你的驗證碼） -->
   <!-- REPLACE START: Search Console Verification -->
   <meta name="google-site-verification" content="PASTE_YOUR_CODE" />
-  <!-- REPLACE END: Search Console Verification -->
+  <!-- REPLACE END -->
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph / Twitter（改成你的正式網址與縮圖） -->
   <!-- REPLACE START: Social Meta -->
-  <meta property="og:title" content="你的名字｜個人介紹" />
-  <meta property="og:description" content="高質感個人網站：作品、經歷、聯絡。" />
+  <meta property="og:title" content="潘皇書｜個人介紹" />
+  <meta property="og:description" content="國立中央大學經濟系（2025）；投資平均報酬約 27%；市場/公司分析；前端與 Figma/AI 工具學習中。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-domain.example/" />
   <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- REPLACE END: Social Meta -->
+  <!-- REPLACE END -->
 
   <link rel="canonical" href="https://your-domain.example/" />
 
@@ -40,14 +40,14 @@
        ===================================== */
 
     /* Reset / Base */
-    *,*::before,*::after{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth} body{margin:0;font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg);}
+    *,*::before,*::after{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth} body{margin:0;font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg)}
 
     /* 色票：深色預設；.light = 淺色（加強對比） */
     :root{--bg:#0b0c10;--bg-2:#0e1117;--card:#0f1218;--muted:#a7b0be;--text:#f2f6fb;--line:#1f2430;--brand:#22d3ee;--brand-2:#6366f1;--accent:#f6ad55;--ok:#10b981;--bad:#ef4444;--ring:0 0 0 3px rgba(34,211,238,.28);--header-h:68px}
-    :root.light{--bg:#f6f8fc;--bg-2:#eef2f9;--card:#ffffff;--muted:#465262;--text:#0f172a;--line:#d8e0ea;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ok:#0f766e;--bad:#b91c1c;--ring:0 0 0 3px rgba(14,165,233,.28)}
+    :root.light{--bg:#f5f7fb;--bg-2:#eaf0fb;--card:#ffffff;--muted:#2b3950;--text:#0a0f1a;--line:#cdd7e6;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ok:#0f766e;--bad:#b91c1c;--ring:0 0 0 3px rgba(14,165,233,.28)}
 
     /* 連貫「極光」背景（整頁一致） */
-    body::before{content:"";position:fixed;inset:-10% -10% -10% -10%;z-index:-2;background:radial-gradient(1200px 800px at 110% -10%,color-mix(in oklab,var(--brand) 35%,transparent) 0%,transparent 55%),radial-gradient(1200px 800px at -10% -10%,color-mix(in oklab,var(--brand-2) 35%,transparent) 0%,transparent 60%),conic-gradient(from 200deg at 70% 20%,var(--bg) 0 20%,color-mix(in oklab,var(--bg-2) 90%,transparent) 20% 60%,var(--bg) 60% 100%);filter:saturate(1.2) contrast(1.05);}
+    body::before{content:"";position:fixed;inset:-10% -10% -10% -10%;z-index:-2;background:radial-gradient(1200px 800px at 110% -10%,color-mix(in oklab,var(--brand) 35%,transparent) 0%,transparent 55%),radial-gradient(1200px 800px at -10% -10%,color-mix(in oklab,var(--brand-2) 35%,transparent) 0%,transparent 60%),conic-gradient(from 200deg at 70% 20%,var(--bg) 0 20%,color-mix(in oklab,var(--bg-2) 90%,transparent) 20% 60%,var(--bg) 60% 100%);filter:saturate(1.1) contrast(1.05)}
     body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.06;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHUlEQVQoU2NkwA7+Z2BgYGBgGIyBEUQ0GJgBAwMAAAHcAARkQH3yAAAAAElFTkSuQmCC');mix-blend-mode:overlay;pointer-events:none}
 
     /* 容器/工具類 */
@@ -70,7 +70,7 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:100%}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px color-mix(in oklab,var(--brand) 60%,transparent)}
-    .nav a{color:var(--text);text-decoration:none;font-weight:600;opacity:.86} .nav a:hover{opacity:1}
+    .nav a{color:var(--text);text-decoration:none;font-weight:700;opacity:.92} .nav a:hover{opacity:1}
     .links{display:flex;align-items:center;gap:18px}
     .theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:transparent}
     .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));z-index:75}
@@ -92,12 +92,12 @@
     .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .bar{height:10px;border-radius:999px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid var(--line);overflow:hidden} .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0}
 
-    /* Timeline（垂直導線 + 玻璃卡） */
+    /* Timeline */
     .timeline{position:relative} .timeline::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;background:var(--line)}
     .step{position:relative;display:grid;grid-template-columns:28px 1fr;gap:14px}
     .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
 
-    /* Works（不規則卡片比例，增強視覺節奏） */
+    /* Works */
     .works .grid{grid-template-columns:repeat(12,1fr)}
     .work{grid-column:span 4;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--card);transition:transform .25s ease,box-shadow .25s ease}
     .work--wide{grid-column:span 8}
@@ -131,7 +131,7 @@
   <div class="progress" id="progressBar"></div>
   <header class="site">
     <div class="container nav">
-      <div class="brand"><b class="logo" aria-hidden="true"></b><a href="#home" class="muted" aria-label="回到首頁" style="color:var(--text);text-decoration:none;"><strong>你的名字</strong>｜個人網站</a></div>
+      <div class="brand"><b class="logo" aria-hidden="true"></b><a href="#home" class="muted" aria-label="回到首頁" style="color:var(--text);text-decoration:none;"><strong>潘皇書</strong>｜個人網站</a></div>
       <nav class="links" aria-label="主導覽"><a href="#about">關於我</a><a href="#skills">技能</a><a href="#xp">經歷</a><a href="#works">作品</a><a href="#contact">聯絡</a></nav>
       <button class="theme-toggle" id="themeBtn" aria-label="切換深淺色">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.95 6.95-1.41-1.41M7.46 7.46 6.05 6.05m11.31-1.41-1.41 1.41M7.46 16.54 6.05 17.95" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/></svg>
@@ -143,28 +143,27 @@
     <!-- Hero（左文右視覺） -->
     <section class="section skew-btm container hero reveal">
       <div>
-        <span class="tag">個人網站模板</span>
-        <!-- REPLACE START: Hero 文案與 CTA -->
-        <h1>你好，我是<span style="white-space:nowrap">你的名字</span>。<br/>專注把 <span style="white-space:nowrap">設計 × 工程 × 商業結果</span> 推到最高點。</h1>
-        <p class="lead" style="max-width:58ch">打造極速、可維護、能轉換的單檔網站與登陸頁。嚴格的 SEO/效能準則、GA4/Console 追蹤、可量化的實際成果。</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="#contact">洽談合作</a><a class="btn ghost" href="#works">作品精選</a><a class="btn ghost" href="/cv.pdf" download>下載履歷</a></div>
-        <!-- REPLACE END -->
+        <span class="tag">自我介紹｜Portfolio</span>
+        <!-- 已套用：Hero 文案與 CTA -->
+        <h1>你好，我是<span style="white-space:nowrap">潘皇書</span>。<br/>國立中央大學經濟系（2025）。投資與市場/公司分析。</h1>
+        <p class="lead" style="max-width:62ch">自 2020 年開始個人投資，歷年平均報酬約 <strong>27%</strong>；歡迎交流股票/市場觀點。正持續學習前端與 Figma，探索市場低效率與可行專案（目前 3–4 件進行中）。AI 工具（ChatGPT/Gemini）具中上熟練度，能處理基本到進階使用情境。</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="#contact">洽談 / 交流投資</a><a class="btn ghost" href="#works">查看作品</a><a class="btn ghost" href="/cv.pdf" download>下載履歷</a></div>
         <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px">
-          <div class="kv-item"><span class="muted">完成專案</span><strong>52+</strong></div>
-          <div class="kv-item"><span class="muted">平均交付</span><strong>7–14 天</strong></div>
-          <div class="kv-item"><span class="muted">客戶滿意</span><strong>98%</strong></div>
+          <div class="kv-item"><span class="muted">投資平均報酬</span><strong>≈ 27% / 年</strong></div>
+          <div class="kv-item"><span class="muted">進行中專案</span><strong>3–4 件</strong></div>
+          <div class="kv-item"><span class="muted">AI 工具熟練</span><strong>中上</strong></div>
         </div>
       </div>
       <div class="aura">
         <div class="glass">
-          <!-- REPLACE START: 大頭貼 -->
+          <!-- REPLACE START: 大頭貼（可換真實照片） -->
           <div class="avatar-xl" aria-label="個人視覺"></div>
           <!-- REPLACE END -->
           <div class="kv-list">
-            <div class="kv-item"><span class="muted">角色</span><strong>前端 / 視覺</strong></div>
-            <div class="kv-item"><span class="muted">地點</span><strong>桃園 / 遠端</strong></div>
-            <div class="kv-item"><span class="muted">服務</span><strong>單檔官網</strong></div>
-            <div class="kv-item"><span class="muted">工具</span><strong>VS Code / Figma</strong></div>
+            <div class="kv-item"><span class="muted">語言</span><strong>中文（精通）</strong></div>
+            <div class="kv-item"><span class="muted">語言</span><strong>英文（中等）</strong></div>
+            <div class="kv-item"><span class="muted">語言</span><strong>臺語 / 粵語（入門）</strong></div>
+            <div class="kv-item"><span class="muted">工具</span><strong>ChatGPT / Gemini</strong></div>
           </div>
         </div>
       </div>
@@ -175,86 +174,94 @@
       <div class="grid" style="grid-template-columns:1fr 1fr;align-items:start">
         <div class="card pad">
           <h2 class="title">關於我</h2>
-          <p class="subtitle">以工程實力兜起美學，讓網站又快又能賣。</p>
+          <p class="subtitle">把數據與邏輯轉成實際決策與可行專案。</p>
           <div class="facts">
-            <div><div class="muted">定位</div><strong>前端 / 視覺設計</strong></div>
-            <div><div class="muted">強項</div><strong>單檔 HTML｜SEO｜效能</strong></div>
-            <div><div class="muted">語言</div><strong>中文 / English</strong></div>
-            <div><div class="muted">習慣</div><strong>可測量的成果</strong></div>
+            <div><div class="muted">學歷</div><strong>國立中央大學 經濟系 學士（2025）</strong></div>
+            <div><div class="muted">投資</div><strong>2020–至今｜年均約 27%</strong></div>
+            <div><div class="muted">研究</div><strong>市場結構｜公司基本面</strong></div>
+            <div><div class="muted">興趣</div><strong>前端、Figma、影片剪輯</strong></div>
           </div>
-          <p class="muted" style="margin-top:12px">語意化 HTML、輕量 CSS、最低耦合 JS；以 Lighthouse/GA4/Console 驅動迭代。</p>
+          <p class="muted" style="margin-top:12px">正在學習如何以前端與資料思維，將觀察到的市場低效率轉化為產品原型與小型營運；也樂於與投資同好交流觀點。</p>
         </div>
         <div id="skills" class="card pad">
           <h2 class="title">技能組合</h2>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px"><span class="chip">HTML/ARIA</span><span class="chip">CSS/RWD</span><span class="chip">JS/效能</span><span class="chip">SEO/Schema</span><span class="chip">GA4/Console</span><span class="chip">Cloudflare Pages</span></div>
-          <div class="in"><label class="muted">語意化 / 可維護</label><div class="bar" data-pct="92"><i></i></div></div>
-          <div class="in"><label class="muted">效能 / 速度</label><div class="bar" data-pct="90"><i></i></div></div>
-          <div class="in"><label class="muted">SEO / 架構</label><div class="bar" data-pct="88"><i></i></div></div>
-          <div class="in"><label class="muted">UI / 動效</label><div class="bar" data-pct="84"><i></i></div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px">
+            <span class="chip">中文（精通）</span><span class="chip">英文（中等）</span><span class="chip">臺語 / 粵語（入門）</span>
+            <span class="chip">市場 / 公司分析</span><span class="chip">投資策略</span>
+            <span class="chip">ChatGPT / Gemini（中上）</span><span class="chip">Figma（學習中）</span><span class="chip">影片剪輯（基礎）</span>
+            <span class="chip">前端：HTML / CSS / JS（初學）</span>
+          </div>
+          <div class="in"><label class="muted">市場/公司分析</label><div class="bar" data-pct="88"><i></i></div></div>
+          <div class="in"><label class="muted">AI 工具應用</label><div class="bar" data-pct="78"><i></i></div></div>
+          <div class="in"><label class="muted">Figma / 視覺</label><div class="bar" data-pct="60"><i></i></div></div>
+          <div class="in"><label class="muted">前端基礎</label><div class="bar" data-pct="45"><i></i></div></div>
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
+    <!-- Timeline：實際經歷 -->
     <section id="xp" class="section skew-top container reveal">
       <h2 class="title">經歷里程</h2>
       <div class="timeline grid" style="gap:22px">
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>自由工作者｜前端設計</strong><div class="muted">2023–至今｜遠端</div><p class="muted">打造單檔網站與登陸頁，兼顧 SEO 與效能，提升轉換。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>某公司｜前端工程師</strong><div class="muted">2021–2023｜台北</div><p class="muted">行銷頁與設計系統落地，導入 Lighthouse/GA 觀測，頁速 90+。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>某實習｜UI/UX</strong><div class="muted">2020–2021｜桃園</div><p class="muted">建立設計規範與元件，優化新手流程，跳出率下降 18%。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>國立中央大學 經濟系｜學士</strong><div class="muted">2021–2025（畢）</div><p class="muted">經濟理論與資料視角結合投資、產業研究。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>個人投資｜自營</strong><div class="muted">2020–至今</div><p class="muted">專注市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>餐飲業｜兼職</strong><div class="muted">約 5 年</div><p class="muted">半工半讀，理解餐飲營運與前線流程。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>電子廠｜短期兼職</strong><div class="muted">約 3 個月</div><p class="muted">接觸製造現場，建立基本生產/流程概念。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>中租｜實習</strong><div class="muted">一段時間</div><p class="muted">探索金融服務實務；因理念不符未續任。</p></div></div>
+        <div class="step"><span class="dot"></span><div class="card pad"><strong>會計實習生｜兼職</strong><div class="muted">時間不定</div><p class="muted">掌握基本會計常識與流程協作。</p></div></div>
       </div>
     </section>
 
-    <!-- Works：不規則網格 -->
+    <!-- Works：不規則網格（示意，可替換） -->
     <section id="works" class="section container reveal">
-      <h2 class="title">作品精選</h2>
-      <p class="subtitle">以商業結果為導向的網站實作</p>
+      <h2 class="title">作品 / 專案</h2>
+      <p class="subtitle">目前有 3–4 個具市場價值的專案在進行（可面談細節）。</p>
       <div class="grid works">
         <!-- REPLACE START: 作品卡（可複製 <article> 新增；work--wide 可跨欄） -->
         <article class="work work--wide">
-          <a href="#" class="thumb ratio" aria-label="作品一">
+          <a href="#" class="thumb ratio" aria-label="投資研究／部位管理（示意）">
             <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='740'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%230ea5e9'/%3E%3Cstop offset='.7' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
-            <h3>品牌登陸頁（示意）</h3>
+            <h3>投資研究 / 風控機制（示意）</h3>
           </a>
         </article>
         <article class="work">
-          <a href="#" class="thumb ratio" aria-label="作品二">
+          <a href="#" class="thumb ratio" aria-label="前端學習作品（示意）">
             <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='740'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3Ccircle cx='55%25' cy='40%25' r='240' fill='%230ea5e9'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
-            <h3>個人作品集（示意）</h3>
+            <h3>個人網站 / 組件（示意）</h3>
           </a>
         </article>
         <article class="work">
-          <a href="#" class="thumb ratio" aria-label="作品三">
+          <a href="#" class="thumb ratio" aria-label="Figma 練習與影片剪輯（示意）">
             <img alt="作品縮圖" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='740'%3E%3Crect width='100%25' height='100%25' fill='%231c1917'/%3E%3Crect x='10%25' y='18%25' width='80%25' height='64%25' rx='20' ry='20' fill='%23ffffff10' stroke='%23ffffff20'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)" />
-            <h3>企業小官網（示意）</h3>
+            <h3>Figma / 剪輯練習（示意）</h3>
           </a>
         </article>
-        <!-- REPLACE END: 作品卡 -->
+        <!-- REPLACE END -->
       </div>
     </section>
 
     <!-- Testimonials / Contact -->
     <section id="contact" class="section skew-top container reveal" style="display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start">
       <div class="card pad">
-        <h2 class="title">客戶回饋</h2>
+        <h2 class="title">交流與回饋</h2>
         <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
-          <div class="card pad say"><img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%2360a5fa'/%3E%3C/svg%3E" /><div><p>「速度快、對比清楚，SEO 與轉換都顧到。」</p><div class="muted">— 某品牌行銷</div></div></div>
-          <div class="card pad say"><img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%23f59e0b'/%3E%3C/svg%3E" /><div><p>「單檔維護簡單，GA4 追蹤轉換很實用。」</p><div class="muted">— 中小企業主</div></div></div>
+          <div class="card pad say"><img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%2360a5fa'/%3E%3C/svg%3E" /><div><p>「分析邏輯清楚，能把重點轉成行動與紀律。」</p><div class="muted">— 夥伴回饋（示意）</div></div></div>
+          <div class="card pad say"><img class="avatar" alt="頭像" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70'%3E%3Crect width='100%25' height='100%25' rx='35' ry='35' fill='%23f59e0b'/%3E%3C/svg%3E" /><div><p>「溝通誠懇，能迅速抓到問題核心並提出假設。」</p><div class="muted">— 同學回饋（示意）</div></div></div>
         </div>
       </div>
       <aside class="side-info">
         <form class="card pad contact" method="post" action="https://api.web3forms.com/submit" id="contactForm">
-          <h2 class="title">聯絡我</h2><p class="subtitle">描述需求、預算與時程</p>
-          <!-- REPLACE START: 表單 Key 與欄位 -->
+          <h2 class="title">聯絡潘皇書</h2><p class="subtitle">歡迎交流投資觀點 / 專案合作</p>
+          <!-- REPLACE START: 表單 Key 與聯絡資訊 -->
           <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
           <input type="checkbox" name="botcheck" class="sr" tabindex="-1" autocomplete="off" />
           <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
             <div class="in"><label>你的名字</label><input required name="name" placeholder="王小明" /></div>
             <div class="in"><label>電子郵件</label><input required type="email" name="email" placeholder="you@example.com" /></div>
           </div>
-          <div class="in"><label>主旨</label><input required name="subject" placeholder="個人網站製作" /></div>
-          <div class="in"><label>內容</label><textarea required name="message" rows="6" placeholder="風格、頁數、功能與預算範圍"></textarea><small>送出即同意以信件回覆此詢問。</small></div>
-          <button class="btn primary" type="submit">送出需求</button>
+          <div class="in"><label>主旨</label><input required name="subject" placeholder="投資交流 / 專案合作" /></div>
+          <div class="in"><label>內容</label><textarea required name="message" rows="6" placeholder="請簡述你的想法、目標與可配合時間"></textarea><small>送出即同意以信件回覆此詢問。</small></div>
+          <button class="btn primary" type="submit">送出</button>
           <div id="formMsg" class="muted" role="status" aria-live="polite"></div>
           <!-- REPLACE END -->
         </form>
@@ -265,13 +272,13 @@
   <!-- Footer -->
   <footer>
     <div class="container legal">
-      <div>© <span id="year"></span> 你的名字｜All rights reserved.</div>
+      <div>© <span id="year"></span> 潘皇書｜All rights reserved.</div>
       <div style="display:flex;gap:10px"><a class="muted" href="#home">回到頂部 ↑</a><button class="muted" id="modeMini" style="background:none;border:none;cursor:pointer">深/淺</button></div>
     </div>
   </footer>
 
   <script>
-    /* 主題切換（固定 Header，任何時候可切） */
+    /* 主題切換（固定 Header） */
     (()=>{const r=document.documentElement,g=()=>localStorage.getItem("theme-mode"),s=m=>localStorage.setItem("theme-mode",m),a=m=>{r.classList.toggle("light",m==="light");r.classList.toggle("dark",m==="dark")};let m=g();if(!m){m=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';s(m)}a(m);const t=()=>{const m=r.classList.contains("light")?"dark":"light";a(m);s(m)};document.getElementById("themeBtn").addEventListener("click",t);document.getElementById("modeMini").addEventListener("click",t)})();
 
     /* 技能進度條（進場補齊） */
@@ -285,20 +292,16 @@
 
     /* 固定 Header 的捲動進度條（全程存在） */
     (()=>{const bar=document.getElementById("progressBar");const onScroll=()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;const p=Math.max(0,Math.min(1,h? s/h:0));bar.style.width=(p*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
-    
+
     /* 表單提交（Web3Forms / 可換 API） */
     (()=>{const f=document.getElementById("contactForm"),msg=document.getElementById("formMsg");if(!f)return;f.addEventListener("submit",async ev=>{ev.preventDefault();msg.textContent="送出中…";try{const fd=new FormData(f),res=await fetch(f.action,{method:"POST",body:fd});if(res.ok){msg.textContent="已成功送出，將盡速回覆，謝謝！";f.reset()}else{msg.textContent="送出失敗，請稍後再試或直接來信。"}}catch(e){msg.textContent="網路異常，請稍後再試。"}})})();
   </script>
 
-  <!-- 結構化資料（Person JSON-LD；REPLACE） -->
-  <!-- REPLACE START: JSON-LD -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"你的名字","url":"https://your-domain.example/","image":"https://your-domain.example/me.jpg","sameAs":["https://www.linkedin.com/in/yourid","https://github.com/yourid"],"jobTitle":"前端設計 / 開發","knowsAbout":["HTML","CSS","JavaScript","SEO","GA4"],"worksFor":{"@type":"Organization","name":"Freelance"}}</script>
-  <!-- REPLACE END: JSON-LD -->
+  <!-- 結構化資料（Person JSON-LD；可改 URL/社群） -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"潘皇書","url":"https://your-domain.example/","image":"https://your-domain.example/me.jpg","sameAs":["https://www.linkedin.com/","https://github.com/"],"jobTitle":"市場 / 公司分析、前端學習中","alumniOf":{"@type":"CollegeOrUniversity","name":"National Central University"},"knowsAbout":["Market Analysis","Equity Research","Front-end Basics","Figma","Generative AI"],"worksFor":{"@type":"Organization","name":"Self-Directed"}}</script>
 
-  <!-- GA4（使用你提供的 Measurement ID；可更換） -->
-  <!-- REPLACE START: GA4 Measurement ID -->
+  <!-- GA4（你的 Measurement ID） -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW45DN2QZE"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-ZW45DN2QZE");</script>
-  <!-- REPLACE END: GA4 Measurement ID -->
 </body>
 </html>
