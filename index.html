@@ -2,17 +2,17 @@
 <html lang="zh-Hant" class="no-js">
 <head>
   <!-- =============================
-       單檔個人網站｜v13（潘皇書）
-       強化：A11y（aria-pressed/aria-expanded/鍵盤可用）、行動導覽（漢堡＋焦點陷阱）、
-       互動聯絡卡（鍵盤傾斜/複製/vCard/fallback）、對比微調、SEO/OG/Twitter/Schema、
-       content-visibility、email 前端組合防爬
+       單檔個人網站｜v14（潘皇書）
+       更新：可放本人照片（圓形）、語言新增「馬來文（入門）」、
+       投資改為 2021 起、加入寬柔中學管樂與中央大學僑生聯誼會副社長於經歷
+       保留：A11y、行動導覽、互動聯絡卡、無外部依賴
        ============================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#0b0c10" />
   <title>潘皇書｜個人介紹｜投資與經歷</title>
-  <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）。自 2020 年投資至今，年均約 27%，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT、Gemini、Figma；學習前端與剪輯。歡迎交流市場觀點。" />
+  <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）。自 2021 年投資至今，年均約 27%，擅長市場與公司分析。中文精通、英文中等、臺語/粵語/馬來文入門。熟悉 ChatGPT、Gemini、Figma；學習前端與剪輯。歡迎交流市場觀點。" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -33,8 +33,11 @@
     "@type":"Person",
     "name":"潘皇書",
     "email":"mailto:hongrui169@gmail.com",
-    "alumniOf":{"@type":"CollegeOrUniversity","name":"國立中央大學"},
-    "description":"2025 年經濟系畢業，自 2020 年投資至今，年均約 27%，擅長市場與公司分析，熟悉 ChatGPT/Gemini、Figma，學習前端與剪輯。",
+    "alumniOf":[
+      {"@type":"EducationalOrganization","name":"新山寬柔中學"},
+      {"@type":"CollegeOrUniversity","name":"國立中央大學"}
+    ],
+    "description":"2025 年經濟系畢業，自 2021 年投資至今，年均約 27%，擅長市場與公司分析，熟悉 ChatGPT/Gemini、Figma，學習前端與剪輯。",
     "url":"https://example.com/",
     "sameAs":[
       "https://www.etoro.com/people/noobboy2001",
@@ -90,10 +93,7 @@
     .toggle:hover{box-shadow:0 14px 34px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.1)}
     .toggle span{font-weight:900;letter-spacing:.08em}
     .ico{width:22px;height:22px}
-    .sun{display:none}
-    .moon{display:inline-block}
-    .light .sun{display:inline-block}
-    .light .moon{display:none}
+    .sun{display:none}.moon{display:inline-block}.light .sun{display:inline-block}.light .moon{display:none}
     .hamburger{display:none;background:none;border:2px solid color-mix(in oklab,var(--text) 28%,transparent);border-radius:12px;padding:10px;color:var(--text)}
     .mobile-panel{position:fixed;inset:0 0 auto auto;width:min(86vw,360px);height:100dvh;background:color-mix(in oklab,var(--card) 98%,transparent 2%);border-left:1px solid var(--line);box-shadow:-24px 0 60px rgba(0,0,0,.35);transform:translateX(100%);transition:transform .22s ease;display:flex;flex-direction:column;gap:10px;padding:18px;z-index:85}
     .mobile-panel a{padding:12px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text)}
@@ -105,7 +105,8 @@
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
     .hero h1{font-size:60px;line-height:1.05;margin:0 0 16px;background:linear-gradient(135deg,color-mix(in oklab,var(--text) 88%,var(--brand) 12%),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 18px color-mix(in oklab,var(--brand) 16%,transparent)}
     .glass{border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 86%,transparent),color-mix(in oklab,var(--card) 96%,transparent));box-shadow:0 30px 60px rgba(0,0,0,.25),inset 0 0 0 1px color-mix(in oklab,#fff 6%,transparent);padding:22px}
-    .avatar-xl{aspect-ratio:1/1;width:100%;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),transparent),conic-gradient(from 0deg,var(--brand),var(--brand-2),var(--accent),var(--brand));box-shadow:inset 0 0 40px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.25)}
+    .avatar-xl{aspect-ratio:1/1;width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:inset 0 0 40px rgba(0,0,0,.15),0 10px 30px rgba(0,0,0,.25)}
+    .avatar-round{border-radius:50%;object-fit:cover;object-position:center;background:#000}
     .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 
     /* ===== About / Skills ===== */
@@ -186,9 +187,7 @@
           <svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2m0 16v2M4 12H2m20 0h-2M18.36 5.64l1.41-1.41M4.22 19.78l1.41-1.41M18.36 18.36l1.41 1.41M4.22 4.22l1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <span>深/淺</span>
         </button>
-        <button id="hamburger" class="hamburger" aria-label="開啟導覽選單" aria-controls="mobilePanel" aria-expanded="false">
-          ☰
-        </button>
+        <button id="hamburger" class="hamburger" aria-label="開啟導覽選單" aria-controls="mobilePanel" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -211,7 +210,7 @@
         <div>
           <span class="tag">自我介紹｜Profile</span>
           <h1>你好，我是<span class="nowrap">潘皇書</span>。</h1>
-          <p class="lead" style="max-width:62ch">2025 年畢業於國立中央大學經濟系。自 2020 年開始個人投資，歷年平均報酬約 <strong>27%</strong>，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT 與 Gemini，正在學習前端（HTML/CSS/JS）與 Figma，也具備基本剪輯能力。歡迎與我交流股票與市場觀點。</p>
+          <p class="lead" style="max-width:62ch">2025 年畢業於國立中央大學經濟系。自 <strong>2021 年</strong>開始個人投資，歷年平均報酬約 <strong>27%</strong>，擅長市場與公司分析。中文精通、英文中等、臺語/粵語/馬來文入門。熟悉 ChatGPT 與 Gemini，正在學習前端（HTML/CSS/JS）與 Figma，也具備基本剪輯能力。歡迎與我交流股票與市場觀點。</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
             <a href="#contact" class="btn primary">聯絡我</a>
             <a class="btn" id="mailBtn" href="#">直接寄信</a>
@@ -220,15 +219,17 @@
           <div class="kpis" style="margin-top:22px">
             <div class="kv-item"><span class="muted nowrap">投資平均報酬</span><strong class="nowrap">≈ 27% / 年</strong></div>
             <div class="kv-item"><span class="muted nowrap">AI 工具熟練</span><strong class="nowrap">中上（ChatGPT/Gemini）</strong></div>
-            <div class="kv-item"><span class="muted nowrap">語言</span><strong class="nowrap">中｜英｜臺｜粵</strong></div>
+            <div class="kv-item"><span class="muted nowrap">語言</span><strong class="nowrap">中｜英｜臺｜粵｜馬</strong></div>
           </div>
         </div>
         <div class="glass">
-          <div class="avatar-xl" aria-label="個人視覺"></div>
+          <!-- 將 portrait.png 放在與本檔同資料夾；若檔名不同，改 src 即可 -->
+          <img class="avatar-xl avatar-round" src="portrait.png" alt="潘皇書的照片" loading="lazy" decoding="async" />
           <div class="kv-list">
             <div class="kv-item"><span class="muted nowrap">中文</span><strong class="nowrap">精通</strong></div>
             <div class="kv-item"><span class="muted nowrap">英文</span><strong class="nowrap">中等</strong></div>
             <div class="kv-item"><span class="muted nowrap">臺語/粵語</span><strong class="nowrap">入門</strong></div>
+            <div class="kv-item"><span class="muted nowrap">馬來文</span><strong class="nowrap">入門</strong></div>
             <div class="kv-item"><span class="muted nowrap">工具</span><strong class="nowrap">ChatGPT / Gemini / Figma</strong></div>
           </div>
         </div>
@@ -243,7 +244,7 @@
           <p class="subtitle">把數據與邏輯轉成可執行的投資判斷與學習路線。</p>
           <div class="facts">
             <div><div class="muted nowrap">學歷</div><strong class="nowrap">國立中央大學 經濟系 學士（2025）</strong></div>
-            <div><div class="muted nowrap">投資</div><strong class="nowrap">2020–至今｜年均約 27%</strong></div>
+            <div><div class="muted nowrap">投資</div><strong class="nowrap">2021–至今｜年均約 27%</strong></div>
             <div><div class="muted nowrap">研究</div><strong class="nowrap">市場結構｜公司基本面</strong></div>
             <div><div class="muted nowrap">工具</div><strong class="nowrap">ChatGPT｜Gemini｜Figma｜剪輯基礎</strong></div>
           </div>
@@ -253,7 +254,16 @@
         <div id="skills" class="card pad">
           <h2 class="title">技能與熟練度</h2>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px">
-            <span class="chip">中文（精通）</span><span class="chip">英文（中等）</span><span class="chip">臺語/粵語（入門）</span><span class="chip">市場/公司分析</span><span class="chip">投資策略</span><span class="chip nowrap">AI 工具應用（中上）</span><span class="chip">Figma（學習中）</span><span class="chip">影片剪輯（基礎）</span><span class="chip nowrap">前端：HTML/CSS/JS（初學）</span>
+            <span class="chip">中文（精通）</span>
+            <span class="chip">英文（中等）</span>
+            <span class="chip">臺語/粵語（入門）</span>
+            <span class="chip">馬來文（入門）</span>
+            <span class="chip">市場/公司分析</span>
+            <span class="chip">投資策略</span>
+            <span class="chip nowrap">AI 工具應用（中上）</span>
+            <span class="chip">Figma（學習中）</span>
+            <span class="chip">影片剪輯（基礎）</span>
+            <span class="chip nowrap">前端：HTML/CSS/JS（初學）</span>
           </div>
           <div class="in"><label class="muted nowrap">市場/公司分析</label><div class="bar" data-pct="88"><i></i></div></div>
           <div class="in"><label class="muted nowrap">AI 工具應用</label><div class="bar" data-pct="78"><i></i></div></div>
@@ -263,18 +273,39 @@
       </div>
     </section>
 
-    <!-- 經歷里程 -->
+    <!-- 經歷里程（加入寬柔中學與僑生聯誼會副社長） -->
     <section id="xp" class="container" style="padding:84px 0" data-section>
       <h2 class="title" style="margin-bottom:12px">經歷里程</h2>
       <div class="timeline">
         <div class="reel" id="xpReel" aria-live="polite">
           <div class="list" id="xpList">
+            <!-- 你原先指定的排序為主，新增項目置於合適位置 -->
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">餐飲業｜兼職</strong><div class="muted nowrap">約 5 年</div><p class="muted" style="margin:6px 0 0">半工半讀，理解前線營運與服務節奏。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">電子廠｜短期兼職</strong><div class="muted nowrap">約 3 個月</div><p class="muted" style="margin:6px 0 0">接觸製造現場流程，培養紀律與品質意識。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">會計實習生｜兼職</strong><div class="muted nowrap">5 個月</div><p class="muted" style="margin:6px 0 0">累積基本會計常識與文件流程協作。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">中租｜實習</strong><div class="muted nowrap">一段時間</div><p class="muted" style="margin:6px 0 0">理解金融服務實務；因理念不符未續任。</p></div></div>
+
+            <!-- 新增：2014–2019 寬柔中學 管樂團 -->
+            <div class="item"><span class="dot"></span>
+              <div class="card step">
+                <strong class="nowrap">新山寬柔中學｜管樂團</strong>
+                <div class="muted nowrap">2014–2019（幹部 5 年）</div>
+                <p class="muted" style="margin:6px 0 0">參與 6 年；曾獲 <strong>台灣金獎一枚、馬來西亞金獎一枚</strong>。</p>
+              </div>
+            </div>
+
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">國立中央大學 經濟系｜學士</strong><div class="muted nowrap">2021–2025（畢）</div><p class="muted" style="margin:6px 0 0">以經濟理論與資料視角研究市場與企業。</p></div></div>
-            <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">個人投資｜自營</strong><div class="muted nowrap">2020–至今</div><p class="muted" style="margin:6px 0 0">擅長市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
+
+            <!-- 新增：2021–2022 僑生聯誼會 副社長 -->
+            <div class="item"><span class="dot"></span>
+              <div class="card step">
+                <strong class="nowrap">國立中央大學 僑生聯誼會｜副社長</strong>
+                <div class="muted nowrap">2021–2022</div>
+                <p class="muted" style="margin:6px 0 0">協調活動與對外溝通，帶領跨國僑生社群。</p>
+              </div>
+            </div>
+
+            <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">個人投資｜自營</strong><div class="muted nowrap">2021–至今</div><p class="muted" style="margin:6px 0 0">擅長市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
           </div>
         </div>
         <div class="muted" style="font-size:12px;margin-top:6px">滑鼠移上可暫停；系統偏好「減少動畫」會自動停用循環。</div>
@@ -294,10 +325,9 @@
       </div>
     </section>
 
-    <!-- Contact：互動＋可及性 -->
+    <!-- Contact：互動＋可及性（沿用 v13） -->
     <section id="contact" class="container" style="padding:84px 0" data-section>
       <div class="contact-grid">
-        <!-- 互動卡 -->
         <div class="tile tilt" id="contactTile" tabindex="0" role="region" aria-labelledby="contactTitle" aria-describedby="tileHint">
           <h2 class="title" id="contactTitle" style="margin-bottom:8px">聯絡方式</h2>
           <p class="muted" id="tileHint">滑鼠或方向鍵可使卡片微傾斜；下方按鈕可複製或快速寄信。</p>
@@ -325,7 +355,6 @@
           <p class="hint" id="fallbackHint" hidden style="margin-top:8px">若無法開啟郵件程式，已顯示 Email 可供複製。</p>
         </div>
 
-        <!-- 快速郵件（mailto） -->
         <div class="card pad">
           <h3 class="title" style="font-size:24px;margin:0 0 8px">快速留言（寄到我的 Email）</h3>
           <p class="muted" style="margin:0 0 12px">無需後端，直接用你的郵件軟體寄出。</p>
@@ -364,19 +393,19 @@
   <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
 
   <script>
-    /* ===== 年份、進度條、content-visibility ===== */
+    /* 年份、進度條、content-visibility */
     (()=>{document.getElementById("year").textContent=new Date().getFullYear()
       ;document.querySelectorAll("[data-section]").forEach(s=>s.style.contentVisibility="auto")
       ;const bar=document.getElementById("progressBar");const onScroll=()=>{const s=scrollY;const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(Math.max(0,Math.min(1,h? s/h:0))*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
 
-    /* ===== 主題切換（aria-pressed 同步） ===== */
+    /* 主題切換（aria-pressed 同步） */
     (()=>{const r=document.documentElement,btn=document.getElementById("themeBtn")
       ,get=()=>localStorage.getItem("theme-mode"),set=v=>localStorage.setItem("theme-mode",v)
       ,apply=v=>{r.classList.toggle("light",v==="light");r.classList.toggle("dark",v==="dark");btn.setAttribute("aria-pressed",v==="dark"?"true":"false")}
       ;let v=get();if(!v){v=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';set(v)}apply(v)
       ;btn.addEventListener("click",()=>{v=r.classList.contains("light")?"dark":"light";apply(v);set(v)})})();
 
-    /* ===== 行動導覽：漢堡＋焦點陷阱 ===== */
+    /* 行動導覽：漢堡＋焦點陷阱 */
     (()=>{const panel=document.getElementById("mobilePanel"),openBtn=document.getElementById("hamburger"),closeBtn=document.getElementById("closePanel")
       ;const focusables=()=>panel.querySelectorAll('a,button');let lastActive=null
       ;function open(){lastActive=document.activeElement;panel.classList.add("show");panel.setAttribute("aria-hidden","false");openBtn.setAttribute("aria-expanded","true");focusables()[0].focus();document.addEventListener("keydown",trap)}
@@ -384,12 +413,12 @@
       function trap(e){if(e.key!=="Tab")return;const f=[...focusables()];if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault()}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault()}}
       openBtn.addEventListener("click",open);closeBtn.addEventListener("click",close);panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));addEventListener("keydown",e=>{if(e.key==="Escape"&&panel.classList.contains("show"))close()})})();
 
-    /* ===== 技能條一次性填滿 ===== */
+    /* 技能條一次性填滿 */
     (()=>{const bars=[...document.querySelectorAll(".bar")]
       ,io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelector("i").style.width=(e.target.getAttribute("data-pct")||0)+"%";io.unobserve(e.target)}})},{threshold:.4})
       ;bars.forEach(b=>io.observe(b))})();
 
-    /* ===== 經歷：逐項上滑循環 ===== */
+    /* 經歷：逐項上滑循環 */
     (()=>{const reel=document.getElementById("xpReel"),list=document.getElementById("xpList");if(!reel||!list)return;let paused=false
       ;reel.addEventListener("mouseenter",()=>paused=true);reel.addEventListener("mouseleave",()=>paused=false)
       ;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return
@@ -398,17 +427,16 @@
         ;const onEnd=()=>{list.removeEventListener("transitionend",onEnd);list.appendChild(first);list.style.transition="none";list.style.transform="translateY(0)"};list.addEventListener("transitionend",onEnd)}
       ;setInterval(step,stepMs)})();
 
-    /* ===== Snackbar ===== */
+    /* Snackbar */
     const $snk=document.getElementById("snackbar");function toast(msg,ok=true){$snk.textContent=msg;$snk.style.borderColor=ok?'color-mix(in oklab,var(--ok) 60%,transparent)':'color-mix(in oklab,var(--bad) 60%,transparent)';$snk.classList.add("show");setTimeout(()=>{$snk.classList.remove("show")},1700)}
 
-    /* ===== Email 前端組合＋Copy / Mailto / vCard ===== */
+    /* Email 前端組合＋Copy / Mailto / vCard */
     (()=>{const user="hongrui169",dom="@gmail.com",email=user+dom
       ;const emailText=document.getElementById("emailText");emailText.textContent=email;emailText.parentElement.setAttribute("title",email)
       ;const mailHref=`mailto:${email}`;const mailBtn=document.getElementById("mailBtn");mailBtn.href=mailHref
       ;const mailtoBtn=document.getElementById("mailtoBtn");mailtoBtn.href=mailHref
       ;document.getElementById("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(email);toast("Email 已複製到剪貼簿 ✔️")}catch{toast("複製失敗，請手動複製",false);document.getElementById("fallbackHint").hidden=false}})
 
-      // 下載 vCard（動態）
       const a=document.getElementById("vcfBtn")
       ;const vcf=`BEGIN:VCARD
 VERSION:3.0
@@ -420,7 +448,7 @@ END:VCARD`
       ;a.href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcf)
     })();
 
-    /* ===== 快速郵件表單：required + 內嵌錯誤訊息 ===== */
+    /* 快速郵件表單：required + 內嵌錯誤訊息 */
     (()=>{const f=document.getElementById("mailForm"),subj=f.subject,msg=f.message,errS=document.getElementById("errSubj"),errM=document.getElementById("errMsg")
       ;function val(){let ok=true;if(!subj.value.trim()){errS.style.display="block";subj.setAttribute("aria-invalid","true");ok=false}else{errS.style.display="none";subj.setAttribute("aria-invalid","false")}
         if(!msg.value.trim()){errM.style.display="block";msg.setAttribute("aria-invalid","true");ok=false}else{errM.style.display="none";msg.setAttribute("aria-invalid","false")}
@@ -430,7 +458,7 @@ END:VCARD`
         ;location.href=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subj.value.trim())}&body=${encodeURIComponent(body)}`;toast("已開啟郵件程式")})
       ;subj.addEventListener("input",val);msg.addEventListener("input",val)})();
 
-    /* ===== 互動名片：滑鼠/鍵盤傾斜 ===== */
+    /* 互動名片：滑鼠/鍵盤傾斜 */
     (()=>{const tile=document.getElementById("contactTile");const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;if(!tile||reduce)return
       ;tile.addEventListener("mousemove",e=>{const r=tile.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,rx=((y/r.height)-0.5)*-6,ry=((x/r.width)-0.5)*6
         ;tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;tile.style.setProperty("--mx",`${(x/r.width)*100}%`);tile.style.setProperty("--my",`${(y/r.height)*100}%`)})
