@@ -2,11 +2,9 @@
 <html lang="zh-Hant" class="no-js">
 <head>
   <!-- =============================
-       百萬級單檔網站｜完整版 v7（潘皇書）
-       - 特性：固定 Header、極光連貫背景、高對比雙色主題（含圖示切換）、A11y、RWD
-       - 模組：Hero／關於與技能／經歷時間軸（自定排序）／eToro 區塊（3 連結卡）／聯絡／免責與隱私
-       - SEO：OG/Twitter、JSON-LD（Person+Website）、可加 GA4、Search Console 位
-       - 風格：CSS「每個規則一行」（非每個分號換行），易讀易改
+       百萬級單檔網站｜完整版 v8（潘皇書）
+       變更要點：主題切換更清楚（高對比＋圖示）、經歷里程自動向上循環滾動、eToro 區塊加入「即時圖表」(需 proxy；失敗時以示意資料顯示)、免責與隱私
+       規則：CSS「每個規則一行」（非每個分號一行），便於閱讀與修改
        ============================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -16,29 +14,17 @@
   <title>潘皇書｜個人介紹｜投資與經歷</title>
   <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）畢業。自 2020 年投資至今，歷年平均報酬約 27%，擅長市場與公司分析。熟悉 ChatGPT、Gemini、Figma，持續學習前端與剪輯。" />
   <link rel="canonical" href="https://your-domain.example/" />
-  <!-- Search Console（REPLACE） -->
-  <meta name="google-site-verification" content="PASTE_YOUR_CODE" />
-  <!-- Open Graph / Twitter（REPLACE URL/IMAGE） -->
-  <meta property="og:title" content="潘皇書｜個人介紹" />
-  <meta property="og:description" content="國立中央大學經濟系（2025）。投資平均報酬約 27%，市場與公司分析。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example/" />
-  <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- 性能與安全小強化 -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
   <style>
     /* ===== Base / Tokens ===== */
     *,*::before,*::after{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth} body{margin:0;font:16px/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg)}
-    :root{--bg:#0b0c10;--bg-2:#0e1117;--card:#0f1218;--muted:#a7b0be;--text:#f2f6fb;--line:#1e293b;--brand:#22d3ee;--brand-2:#7c3aed;--accent:#f6ad55;--ok:#10b981;--bad:#ef4444;--ring:0 0 0 3px rgba(34,211,238,.3);--header-h:72px;--radius:20px;--shadow:0 14px 40px rgba(0,0,0,.18)}
-    :root.light{--bg:#f6f9ff;--bg-2:#eef2fb;--card:#ffffff;--muted:#334155;--text:#0b1220;--line:#cbd5e1;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ring:0 0 0 3px rgba(14,165,233,.3)}
-    /* 連貫極光背景＋細紋理 */
+    :root{--bg:#0b0c10;--bg-2:#0e1117;--card:#0f1218;--muted:#a7b0be;--text:#f2f6fb;--line:#1e293b;--brand:#22d3ee;--brand-2:#7c3aed;--accent:#f6ad55;--ok:#10b981;--bad:#ef4444;--ring:0 0 0 3px rgba(34,211,238,.35);--header-h:72px;--radius:20px;--shadow:0 14px 40px rgba(0,0,0,.18)}
+    :root.light{--bg:#f6f9ff;--bg-2:#eef2fb;--card:#ffffff;--muted:#334155;--text:#0b1220;--line:#cbd5e1;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ring:0 0 0 3px rgba(14,165,233,.35)}
     body::before{content:"";position:fixed;inset:-12%;z-index:-2;background:radial-gradient(900px 600px at 110% -10%,color-mix(in oklab,var(--brand) 36%,transparent) 0%,transparent 55%),radial-gradient(900px 600px at -10% -10%,color-mix(in oklab,var(--brand-2) 36%,transparent) 0%,transparent 60%),linear-gradient(var(--bg),var(--bg-2));filter:saturate(1.05) contrast(1.03)}
     body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.06;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHUlEQVQoU2NkwA7+Z2BgYGBgGIyBEUQ0GJgBAwMAAAHcAARkQH3yAAAAAElFTkSuQmCC');mix-blend-mode:overlay;pointer-events:none}
-    /* A11y & Motion */
     :focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,#fff 30%);outline-offset:2px} @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}} [id]{scroll-margin-top:calc(var(--header-h) + 16px)}
-    .skip{position:fixed;left:-9999px;top:-9999px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:10px;z-index:100} .skip:focus{left:12px;top:12px}
+    .skip{position:fixed;left:-9999px;top:-9999px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:10px;z-index:100}.skip:focus{left:12px;top:12px}
     /* Utilities */
     .container{max-width:1180px;margin:0 auto;padding:0 22px} .grid{display:grid;gap:28px} .grid-2{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
     .card{background:color-mix(in oklab,var(--card) 98%,transparent 2%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:saturate(1.06) blur(8px)}
@@ -49,15 +35,20 @@
     .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 90%,transparent 10%);font-size:12px;color:var(--muted)}
     .muted{color:var(--muted)} .lead{font-size:18px;color:var(--muted)} .title{font-size:38px;line-height:1.2;margin:0 0 12px} .subtitle{font-size:22px;color:var(--muted);margin:0 0 22px} .tag{font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
     .section{padding:100px 0;position:relative} .section.alt{background:linear-gradient(180deg,color-mix(in oklab,var(--bg-2) 40%,transparent),transparent)}
-    /* Header（固定＋進度條＋明顯切換按鈕） */
+    /* Header */
     header.site{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:70;background:linear-gradient(180deg,color-mix(in oklab,var(--bg) 88%,transparent),transparent);backdrop-filter:saturate(1.08) blur(10px);border-bottom:1px solid var(--line)}
     .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px} .logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px color-mix(in oklab,var(--brand) 60%,transparent)}
-    .links{display:flex;align-items:center;gap:20px} .links a{color:var(--text);text-decoration:none;font-weight:700;opacity:.94} .links a:hover{opacity:1}
-    .theme-toggle{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 80%,transparent),color-mix(in oklab,var(--card) 94%,transparent));cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.18)}
-    .theme-toggle .ico{width:18px;height:18px;display:inline-block} .icon-sun{display:none} .icon-moon{display:inline-block} .light .icon-sun{display:inline-block} .light .icon-moon{display:none} .toggle-label{font-size:13px;color:var(--text);opacity:.95}
+    .links{display:flex;align-items:center;gap:20px} .links a{color:var(--text);text-decoration:none;font-weight:700;opacity:.96} .links a:hover{opacity:1}
+    /* 主題切換（更清楚） */
+    .theme-toggle{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:14px;border:1.5px solid color-mix(in oklab,var(--text) 18%,transparent);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 60%,transparent),color-mix(in oklab,var(--card) 95%,transparent));cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.06)}
+    .theme-toggle:hover{box-shadow:0 12px 28px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08)}
+    .theme-toggle:focus-visible{box-shadow:var(--ring),0 12px 28px rgba(0,0,0,.34)}
+    .theme-toggle .ico{width:20px;height:20px;opacity:.96}
+    .icon-sun{display:none} .icon-moon{display:inline-block} .light .icon-sun{display:inline-block} .light .icon-moon{display:none}
+    .toggle-label{font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--text)}
     .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));z-index:75}
-    /* Hero（左文右玻璃卡＋光暈） */
+    /* Hero */
     main{padding-top:calc(var(--header-h) + 28px)}
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px}
     .hero h1{font-size:60px;line-height:1.05;margin:0 0 16px;background:linear-gradient(135deg,color-mix(in oklab,var(--text) 88%,var(--brand) 12%),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 18px color-mix(in oklab,var(--brand) 16%,transparent)}
@@ -71,14 +62,18 @@
     .about .grid{grid-template-columns:1.15fr .85fr}
     .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .bar{height:10px;border-radius:999px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid var(--line);overflow:hidden} .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0}
-    /* Timeline（依使用者要求排序） */
-    .timeline{position:relative} .timeline::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;background:var(--line)}
-    .step{position:relative;display:grid;grid-template-columns:28px 1fr;gap:14px} .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
-    /* eToro 區塊（卡片顏色變體） */
+    /* Timeline：垂直自動循環滾動（可停、可減動） */
+    .ticker{height:360px;overflow:hidden;position:relative;border-radius:16px;border:1px dashed var(--line);padding:10px;background:color-mix(in oklab,var(--card) 92%,transparent)}
+    .ticker-inner{display:flex;flex-direction:column;gap:22px;animation:ticker var(--dur,18s) linear infinite}
+    .ticker:hover .ticker-inner{animation-play-state:paused}
+    @keyframes ticker{0%{transform:translateY(0)}100%{transform:translateY(calc(-1 * var(--scroll-h, 0px)))}}
+    .timeline .step{display:grid;grid-template-columns:28px 1fr;gap:14px}
+    .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
+    /* eToro 區塊 */
     .etoro{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
     .card.link{padding:22px;text-align:center;text-decoration:none;color:var(--text);transition:transform .25s ease,box-shadow .25s ease} .card.link:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(0,0,0,.35)}
     .g1{background:linear-gradient(135deg,var(--brand)20%,var(--brand-2)80%)} .g2{background:linear-gradient(135deg,var(--brand-2)10%,var(--accent)90%)} .g3{background:linear-gradient(135deg,var(--accent)10%,var(--brand)90%)}
-    /* Contact / Footer */
+    /* Footer */
     footer{padding:44px 0;color:var(--muted);border-top:1px solid var(--line);text-align:center}
     /* RWD */
     @media(max-width:980px){.hero{grid-template-columns:1fr}.about .grid{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-2{grid-template-columns:1fr}}
@@ -147,30 +142,44 @@
       </div>
     </section>
 
-    <!-- Timeline（自定排序） -->
+    <!-- Timeline：自動向上循環 -->
     <section id="xp" class="section container">
       <h2 class="title" style="margin-bottom:16px">經歷里程</h2>
-      <div class="timeline grid" style="gap:22px">
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>餐飲業｜兼職</strong><div class="muted">約 5 年</div><p class="muted">半工半讀，理解前線營運與服務節奏。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>電子廠｜短期兼職</strong><div class="muted">約 3 個月</div><p class="muted">接觸製造現場流程，培養紀律與品質意識。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>會計實習生｜兼職</strong><div class="muted">5 個月</div><p class="muted">累積基本會計常識與文件流程協作。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>中租｜實習</strong><div class="muted">一段時間</div><p class="muted">理解金融服務實務；因理念不符未續任。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>國立中央大學 經濟系｜學士</strong><div class="muted">2021–2025（畢）</div><p class="muted">以經濟理論與資料視角研究市場與企業。</p></div></div>
-        <div class="step"><span class="dot"></span><div class="card pad"><strong>個人投資｜自營</strong><div class="muted">2020–至今</div><p class="muted">擅長市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
+      <div class="ticker timeline" id="xpTicker">
+        <div class="ticker-inner" id="xpTickerInner">
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>餐飲業｜兼職</strong><div class="muted">約 5 年</div><p class="muted">半工半讀，理解前線營運與服務節奏。</p></div></div>
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>電子廠｜短期兼職</strong><div class="muted">約 3 個月</div><p class="muted">接觸製造現場流程，培養紀律與品質意識。</p></div></div>
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>會計實習生｜兼職</strong><div class="muted">5 個月</div><p class="muted">累積基本會計常識與文件流程協作。</p></div></div>
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>中租｜實習</strong><div class="muted">一段時間</div><p class="muted">理解金融服務實務；因理念不符未續任。</p></div></div>
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>國立中央大學 經濟系｜學士</strong><div class="muted">2021–2025（畢）</div><p class="muted">以經濟理論與資料視角研究市場與企業。</p></div></div>
+          <div class="step"><span class="dot"></span><div class="card pad"><strong>個人投資｜自營</strong><div class="muted">2020–至今</div><p class="muted">擅長市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
+        </div>
       </div>
+      <div class="muted" style="font-size:12px;margin-top:6px">滑鼠移上即可暫停滾動；系統偏好「減少動畫」將自動關閉。</div>
     </section>
 
-    <!-- eToro：三連結卡（people / stats / portfolio） -->
+    <!-- eToro：三連結卡 + 即時圖表（需 proxy；失敗顯示示意） -->
     <section id="etoro" class="section alt container">
       <div class="card pad">
         <h2 class="title">投資組合（eToro）</h2>
-        <p class="muted">我的 eToro 公開資料：個人總覽、統計、與持倉。頁面由 eToro 提供並即時更新。</p>
+        <p class="muted">我的 eToro 公開資料：個人總覽、統計、與持倉。下方圖表會嘗試即時載入；若無法取得，將以示意資料顯示。</p>
         <div class="etoro" style="margin-top:12px">
           <a class="card link g1" href="https://www.etoro.com/people/noobboy2001" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">個人頁面（總覽）</h3><p style="margin:0">追蹤我、查看基本資訊</p></a>
           <a class="card link g2" href="https://www.etoro.com/people/noobboy2001/stats" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資統計（Stats）</h3><p style="margin:0">收益率、回撤、風險分數</p></a>
           <a class="card link g3" href="https://www.etoro.com/people/noobboy2001/portfolio" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資持倉（Portfolio）</h3><p style="margin:0">目前倉位與配置概覽</p></a>
         </div>
-        <p class="muted" style="margin-top:10px;font-size:13px">提示：若未顯示，請確認 eToro 個人檔案與持倉已設為「公開」。</p>
+
+        <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px;margin-top:18px">
+          <div class="card pad">
+            <div style="display:flex;align-items:center;justify-content:space-between"><h3 class="title" style="font-size:20px;margin:0">報酬率（近 12 個月）</h3><small id="etoroLiveLabel" class="muted">載入中…</small></div>
+            <canvas id="roiChart" width="800" height="320" aria-label="報酬率長條圖"></canvas>
+          </div>
+          <div class="card pad">
+            <h3 class="title" style="font-size:20px;margin:0 0 8px">持倉分佈</h3>
+            <canvas id="allocChart" width="420" height="320" aria-label="持倉比例圓餅圖"></canvas>
+            <div id="allocLegend" class="muted" style="font-size:13px;margin-top:8px"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -195,22 +204,35 @@
   <footer role="contentinfo">© <span id="year"></span> 潘皇書｜All rights reserved.</footer>
 
   <script>
-    /* 主題切換（含太陽/月亮圖示） */
+    /* 主題切換（高對比） */
     (()=>{const r=document.documentElement,get=()=>localStorage.getItem("theme-mode"),set=v=>localStorage.setItem("theme-mode",v),apply=v=>{r.classList.toggle("light",v==="light");r.classList.toggle("dark",v==="dark")};let v=get();if(!v){v=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';set(v)}apply(v);document.getElementById("themeBtn").addEventListener("click",()=>{v=r.classList.contains("light")?"dark":"light";apply(v);set(v)})})();
+    /* 進度條＋年份 */
+    (()=>{document.getElementById("year").textContent=new Date().getFullYear();const bar=document.getElementById("progressBar");const onScroll=()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(Math.max(0,Math.min(1,h? s/h:0))*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
     /* 技能條進場填滿 */
     (()=>{const bars=[...document.querySelectorAll(".bar")],io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelector("i").style.width=(e.target.getAttribute("data-pct")||0)+"%";io.unobserve(e.target)}})},{threshold:.4});bars.forEach(b=>io.observe(b))})();
-    /* Reveal 動畫（可搭配 prefers-reduced-motion 關閉） */
-    (()=>{const els=[...document.querySelectorAll(".section,.card")];els.forEach(el=>{el.style.opacity="0";el.style.transform="translateY(16px)";el.style.transition="all .6s cubic-bezier(.22,1,.36,1)"});const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="none";io.unobserve(e.target)}})},{threshold:.18});els.forEach(el=>io.observe(el))})();
-    /* 年份與捲動進度條 */
-    (()=>{document.getElementById("year").textContent=new Date().getFullYear();const bar=document.getElementById("progressBar");const onScroll=()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(Math.max(0,Math.min(1,h? s/h:0))*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
+    /* 經歷里程：自動向上循環（以內容高度計算時間，滑鼠移上暫停） */
+    (()=>{const wrap=document.getElementById("xpTicker"),inner=document.getElementById("xpTickerInner");const clone=inner.cloneNode(true);inner.parentNode.appendChild(clone);const total=inner.scrollHeight+22;const speed=38;const dur=Math.max(14,Math.round(total/speed));inner.parentNode.style.setProperty("--scroll-h",total+"px");inner.parentNode.style.setProperty("--dur",dur+"s")})();
+    /* ===== eToro 圖表（需 proxy；失敗時用示意資料） ===== */
+    const ETORO_STATS_URL=window.ETORO_STATS_URL||""; /* 例如：https://你的worker.example/etoro/noobboy2001/stats */
+    const ETORO_PORTFOLIO_URL=window.ETORO_PORTFOLIO_URL||""; /* 例如：https://你的worker.example/etoro/noobboy2001/portfolio */
+    const DEMO={stats:{monthly:[{m:"2024-11",roi:2.1},{m:"2024-12",roi:1.6},{m:"2025-01",roi:-0.8},{m:"2025-02",roi:3.2},{m:"2025-03",roi:1.1},{m:"2025-04",roi:2.7},{m:"2025-05",roi:-1.2},{m:"2025-06",roi:4.0},{m:"2025-07",roi:0.9},{m:"2025-08",roi:2.3},{m:"2025-09",roi:1.5},{m:"2025-10",roi:3.0}]},positions:[{name:"AAPL",weight:0.22},{name:"MSFT",weight:0.18},{name:"NVDA",weight:0.16},{name:"TSLA",weight:0.08},{name:"SPY",weight:0.12},{name:"QQQ",weight:0.10},{name:"現金",weight:0.14}]} ;
+    function palette(n){const cs=[];for(let i=0;i<n;i++){const h=(210+(i*38))%360;cs.push(`hsl(${h} 75% 55%)`)}return cs}
+    function drawBars(canvas,labels,values){const ctx=canvas.getContext("2d");const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);const pad=40;const max=Math.max(5,Math.ceil(Math.max(...values)));const min=Math.min(-5,Math.floor(Math.min(...values)));const range=max-min;const zero=H-pad-((0-min)/range)*(H-2*pad);ctx.font="12px system-ui";ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue("--muted").trim();ctx.textAlign="center";for(let i=0;i<labels.length;i++){const x=pad+((i+0.5)*(W-2*pad)/labels.length);if(i%2===0){ctx.fillText(labels[i].slice(5),x,H-8)}}ctx.strokeStyle="#778";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad,zero);ctx.lineTo(W-pad,zero);ctx.stroke();const bw=(W-2*pad)/labels.length*0.64;const colors=palette(values.length);for(let i=0;i<values.length;i++){const x=pad+(i*(W-2*pad)/labels.length)+( ( (W-2*pad)/labels.length - bw )/2 );const y=H-pad;const val=values[i];const h=((val)/range)*(H-2*pad);ctx.fillStyle=colors[i%colors.length];ctx.fillRect(x,zero-(val>0?h:0),bw,Math.abs(h));ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue("--muted").trim();ctx.textAlign="right";if(i===values.length-1){ctx.fillText(max+"%",W-8,pad+4);ctx.fillText(min+"%",W-8,H-pad+12)}}}
+    function drawDonut(canvas,data){const ctx=canvas.getContext("2d");const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);const cx=W/2,cy=H/2,r=Math.min(W,H)/2-16,ri=r*0.58;const sum=data.reduce((a,b)=>a+b.value,0)||1;let a0=-Math.PI/2;const colors=palette(data.length);for(let i=0;i<data.length;i++){const ang=(data[i].value/sum)*Math.PI*2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,a0,a0+ang);ctx.closePath();ctx.fillStyle=colors[i%colors.length];ctx.fill();a0+=ang}ctx.globalCompositeOperation="destination-out";ctx.beginPath();ctx.arc(cx,cy,ri,0,Math.PI*2);ctx.fill();ctx.globalCompositeOperation="source-over";ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue("--text").trim();ctx.font="700 18px system-ui";ctx.textAlign="center";ctx.fillText("持倉",cx,cy+6)}
+    function legendHTML(data){const cols=palette(data.length);return data.map((d,i)=>`<span style="display:inline-flex;align-items:center;gap:8px;margin:4px 10px 0 0"><b style="width:10px;height:10px;border-radius:2px;background:${cols[i]}"></b>${d.label} ${Math.round(d.value*100)/100}%</span>`).join("")}
+    async function fetchJSON(u){const r=await fetch(u,{credentials:"omit"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}
+    (async()=>{const label=document.getElementById("etoroLiveLabel");let stats,positions,live=false;try{if(ETORO_STATS_URL&&ETORO_PORTFOLIO_URL){stats=await fetchJSON(ETORO_STATS_URL);positions=await fetchJSON(ETORO_PORTFOLIO_URL);live=true}else{throw new Error("no-proxy")}}catch(e){stats=DEMO.stats;positions=DEMO.positions}
+      label.textContent=live?"即時資料（API）":"示意資料（請設定 proxy）";
+      const months=(stats.monthly||DEMO.stats.monthly).slice(-12);drawBars(document.getElementById("roiChart"),months.map(m=>m.m),months.map(m=>Number(m.roi)));
+      const alloc=(positions||DEMO.positions).map(p=>({label:p.name||p.instrumentName||"—",value:Math.round((p.weight||p.percentage||0)*10000)/100}));const top=alloc.slice(0,8);const other=alloc.slice(8).reduce((a,b)=>a+b.value,0);const final=other?top.concat([{label:"其他",value:other}]):top;drawDonut(document.getElementById("allocChart"),final);document.getElementById("allocLegend").innerHTML=legendHTML(final)})();
   </script>
 
-  <!-- JSON-LD（Person + Website） -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"潘皇書","url":"https://your-domain.example/","image":"https://your-domain.example/me.jpg","jobTitle":"市場/公司分析、投資者","alumniOf":{"@type":"CollegeOrUniversity","name":"National Central University"},"knowsAbout":["Market Analysis","Equity Research","Figma","Generative AI","Front-end Basics"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"潘皇書 個人介紹","url":"https://your-domain.example/","potentialAction":{"@type":"SearchAction","target":"https://your-domain.example/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
-  <!-- GA4（REPLACE：Measurement ID） -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- GA4（REPLACE：Measurement ID）
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script> -->
 </body>
 </html>
