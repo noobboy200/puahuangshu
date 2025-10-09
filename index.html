@@ -1,15 +1,9 @@
 <!doctype html>
-<html lang="zh-Hant" class="no-js">
+<html lang="zh-Hant">
 <head>
-  <!-- =============================
-       單檔個人網站｜v15（潘皇書）
-       更新：使用你的照片 images/head_pic_v1.jpg
-       - Hero 改為圓形照片
-       - Header 標誌使用你的照片
-       - head 內 favicon / apple-touch-icon 也使用你的照片
-       - 語言等級分組（精通/中等/入門），同級語言列在一起
-       保留：A11y、行動導覽、互動聯絡卡、無外部依賴
-       ============================= -->
+  <!-- 單檔個人網站｜v16（潘皇書）
+       更新：移除不必要說明文字、時間軸支援「點擊切換下一格」且保留自動循環效果
+       圖片與圖示：images/head_pic_v1.jpg（同時作為 favicon / apple-touch-icon / header logo / hero 圓形照） -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
@@ -17,19 +11,17 @@
   <title>潘皇書｜個人介紹｜投資與經歷</title>
   <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）。自 2021 年投資至今，年均約 27%，擅長市場與公司分析。中文精通、英文中等；臺語/粵語/馬來文入門。熟悉 ChatGPT、Gemini、Figma；學習前端與剪輯。" />
 
-  <!-- 用你的照片做 favicon / touch icon（建議放 180x180+） -->
+  <!-- Favicon / Touch icon 都用你的照片（建議提供方形 180×180 以上） -->
   <link rel="icon" href="images/head_pic_v1.jpg" />
-  <link rel="shortcut icon" href="images/head_pic_v1.jpg" />
   <link rel="apple-touch-icon" href="images/head_pic_v1.jpg" />
-  <!-- 簡易 manifest（可保留） -->
-  <link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;%E6%BD%98%E7%9A%87%E6%9B%B8|%E5%80%8B%E4%BA%BA%E7%B6%B2&quot;,&quot;short_name&quot;:&quot;PH-Profile&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%230b0c10&quot;,&quot;theme_color&quot;:&quot;%230b0c10&quot;}" />
 
-  <!-- Schema.org Person（略） -->
+  <!-- Schema.org Person -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Person",
     "name":"潘皇書",
+    "image":"images/head_pic_v1.jpg",
     "email":"mailto:hongrui169@gmail.com",
     "alumniOf":[
       {"@type":"EducationalOrganization","name":"新山寬柔中學"},
@@ -52,11 +44,13 @@
     body{margin:0;font:16px/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg)}
     :root{--bg:#0b0c10;--bg-2:#0e1117;--card:#0f1218;--text:#f3f7fc;--muted:#a7b0be;--line:#1f2837;--brand:#22d3ee;--brand-2:#7c3aed;--accent:#f59e0b;--ok:#10b981;--bad:#ef4444;--shadow:0 14px 40px rgba(0,0,0,.22);--radius:20px;--header-h:76px}
     :root.light{--bg:#f6f9ff;--bg-2:#eef2fb;--card:#ffffff;--text:#0b1220;--muted:#334155;--line:#cbd5e1;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ok:#059669;--bad:#dc2626}
-    body::before{content:"";position:fixed;inset:-12%;z-index:-2;background:radial-gradient(1000px 640px at 110% -10%,color-mix(in oklab,var(--brand) 30%,transparent) 0%,transparent 60%),radial-gradient(1000px 640px at -10% -10%,color-mix(in oklab,var(--brand-2) 30%,transparent) 0%,transparent 60%),linear-gradient(var(--bg),var(--bg-2));filter:saturate(1.04) contrast(1.02)}
+    body::before{content:"";position:fixed;inset:-12%;z-index:-2;background:
+      radial-gradient(1000px 640px at 110% -10%,color-mix(in oklab,var(--brand) 30%,transparent) 0%,transparent 60%),
+      radial-gradient(1000px 640px at -10% -10%,color-mix(in oklab,var(--brand-2) 30%,transparent) 0%,transparent 60%),
+      linear-gradient(var(--bg),var(--bg-2));filter:saturate(1.04) contrast(1.02)}
     body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.06;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHUlEQVQoU2NkwA7+Z2BgYGBgGIyBEUQ0GJgBAwMAAAHcAARkQH3yAAAAAElFTkSuQmCC');mix-blend-mode:overlay;pointer-events:none}
     :focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,#fff 30%);outline-offset:2px}
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
-    @media (prefers-contrast:more){.toggle{border-color:color-mix(in oklab,var(--text) 50%,transparent)} .card{border-color:color-mix(in oklab,var(--text) 30%,transparent)}}
     [id]{scroll-margin-top:calc(var(--header-h) + 16px)}
 
     /* ===== Utilities ===== */
@@ -82,13 +76,11 @@
     header.site{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:80;background:linear-gradient(180deg,color-mix(in oklab,var(--bg) 90%,transparent),transparent);backdrop-filter:saturate(1.08) blur(10px);border-bottom:1px solid var(--line)}
     .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    /* 使用你的照片作為 header 標誌 */
     .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:2px solid color-mix(in oklab,var(--text) 22%,transparent);box-shadow:0 6px 18px rgba(0,0,0,.25)}
     .links{display:flex;align-items:center;gap:20px}
     .links a{color:var(--text);text-decoration:none;font-weight:800;opacity:.98;text-shadow:0 1px 0 rgba(0,0,0,.25)}
     .links a:hover{opacity:1}
     .toggle{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 18px;border-radius:14px;border:2px solid color-mix(in oklab,var(--text) 32%,transparent);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 55%,transparent),color-mix(in oklab,var(--card) 96%,transparent));cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.08);color:var(--text)!important;text-shadow:0 1px 0 rgba(0,0,0,.45)}
-    .toggle:hover{box-shadow:0 14px 34px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.1)}
     .toggle span{font-weight:900;letter-spacing:.08em}
     .ico{width:22px;height:22px}
     .sun{display:none}.moon{display:inline-block}.light .sun{display:inline-block}.light .moon{display:none}
@@ -114,7 +106,8 @@
 
     /* ===== Timeline ===== */
     .timeline{position:relative}
-    .reel{max-height:420px;overflow:hidden;border:1px dashed var(--line);border-radius:16px;background:color-mix(in oklab,var(--card) 92%,transparent);padding:12px;position:relative;mask-image:linear-gradient(to bottom,transparent 0,black 24px,black calc(100% - 24px),transparent 100%)}
+    .reel{max-height:420px;overflow:hidden;border:1px dashed var(--line);border-radius:16px;background:color-mix(in oklab,var(--card) 92%,transparent);padding:12px;position:relative;mask-image:linear-gradient(to bottom,transparent 0,black 24px,black calc(100% - 24px),transparent 100%);cursor:pointer}
+    .reel:focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,#fff 30%);outline-offset:3px}
     .list{display:flex;flex-direction:column;gap:16px;will-change:transform}
     .item{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
     .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
@@ -130,9 +123,9 @@
 
     /* ===== Contact ===== */
     .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
-    .tilt{transform-style:preserve-3d;transition:transform .18s ease,box-shadow .18s ease}
     .tile{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 94%,transparent);box-shadow:0 12px 28px rgba(0,0,0,.22);padding:22px}
     .tile::after{content:"";position:absolute;inset:-20%;background:radial-gradient(300px 200px at var(--mx,20%) var(--my,20%),color-mix(in oklab,var(--brand) 18%,transparent),transparent 60%);opacity:.25;pointer-events:none;filter:blur(20px)}
+    .tilt{transform-style:preserve-3d;transition:transform .18s ease,box-shadow .18s ease}
     .contact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .btn.icon{gap:8px}
     .btn.minor{background:linear-gradient(180deg,color-mix(in oklab,var(--card) 70%,transparent),color-mix(in oklab,var(--card) 95%,transparent))}
@@ -170,15 +163,12 @@
   <header class="site" role="banner">
     <div class="container nav">
       <div class="brand">
-        <!-- 使用你的照片作為 header 圖示 -->
         <img class="logo" src="images/head_pic_v1.jpg" alt="潘皇書頭像縮圖" width="32" height="32" />
         <a href="#home" style="color:var(--text);text-decoration:none;font-weight:900">潘皇書｜個人介紹</a>
       </div>
-
       <nav class="links" aria-label="主導覽">
         <a href="#about">關於</a><a href="#skills">技能</a><a href="#xp">經歷</a><a href="#etoro">投資</a><a href="#contact">聯絡</a>
       </nav>
-
       <div style="display:flex;gap:10px;align-items:center">
         <button class="toggle" id="themeBtn" aria-label="切換深/淺模式" aria-pressed="false" title="切換深/淺模式" type="button">
           <svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
@@ -202,7 +192,6 @@
     <section class="container" style="padding:calc(var(--header-h) + 36px) 0 72px" data-section>
       <div class="hero">
         <div>
-          <span class="tag">自我介紹｜Profile</span>
           <h1>你好，我是<span class="nowrap">潘皇書</span>。</h1>
           <p class="lead" style="max-width:62ch">2025 年畢業於國立中央大學經濟系。自 <strong>2021 年</strong>開始個人投資，歷年平均報酬約 <strong>27%</strong>，擅長市場與公司分析。中文精通、英文中等；<span class="nowrap">臺語/粵語/馬來文 入門</span>。熟悉 ChatGPT 與 Gemini，正在學習前端（HTML/CSS/JS）與 Figma，也具備基本剪輯能力。</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
@@ -216,11 +205,8 @@
             <div class="kv-item"><span class="muted nowrap">語言</span><strong class="nowrap">精通：中文｜中等：英文｜入門：臺/粵/馬</strong></div>
           </div>
         </div>
-
         <div class="glass">
-          <!-- 你的圓形照片 -->
           <img class="avatar-xl avatar-round" src="images/head_pic_v1.jpg" alt="潘皇書的照片" loading="lazy" decoding="async" />
-          <!-- 語言分組（同級列在一起） -->
           <div class="kv-list">
             <div class="kv-item"><span class="muted nowrap">語言（精通）</span><strong class="nowrap">中文</strong></div>
             <div class="kv-item"><span class="muted nowrap">語言（中等）</span><strong class="nowrap">英文</strong></div>
@@ -236,25 +222,19 @@
       <div class="grid-2">
         <div class="card pad">
           <h2 class="title">關於我</h2>
-          <p class="subtitle">把數據與邏輯轉成可執行的投資判斷與學習路線。</p>
           <div class="facts">
             <div><div class="muted nowrap">學歷</div><strong class="nowrap">國立中央大學 經濟系 學士（2025）</strong></div>
             <div><div class="muted nowrap">投資</div><strong class="nowrap">2021–至今｜年均約 27%</strong></div>
             <div><div class="muted nowrap">研究</div><strong class="nowrap">市場結構｜公司基本面</strong></div>
             <div><div class="muted nowrap">工具</div><strong class="nowrap">ChatGPT｜Gemini｜Figma｜剪輯基礎</strong></div>
           </div>
-          <p class="muted" style="margin-top:12px">以紀律與風控為核心；持續學習前端與設計，將對市場低效率的觀察轉為可驗證的原型。</p>
         </div>
-
         <div id="skills" class="card pad">
           <h2 class="title">技能與熟練度</h2>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px">
-            <span class="chip">中文（精通）</span>
-            <span class="chip">英文（中等）</span>
-            <span class="chip">臺語/粵語/馬來文（入門）</span>
-            <span class="chip">市場/公司分析</span><span class="chip">投資策略</span>
-            <span class="chip nowrap">AI 工具應用（中上）</span><span class="chip">Figma（學習中）</span>
-            <span class="chip">影片剪輯（基礎）</span><span class="chip nowrap">前端：HTML/CSS/JS（初學）</span>
+            <span class="chip">中文（精通）</span><span class="chip">英文（中等）</span><span class="chip">臺語/粵語/馬來文（入門）</span>
+            <span class="chip">市場/公司分析</span><span class="chip">投資策略</span><span class="chip nowrap">AI 工具應用（中上）</span>
+            <span class="chip">Figma（學習中）</span><span class="chip">影片剪輯（基礎）</span><span class="chip nowrap">前端：HTML/CSS/JS（初學）</span>
           </div>
           <div class="in"><label class="muted nowrap">市場/公司分析</label><div class="bar" data-pct="88"><i></i></div></div>
           <div class="in"><label class="muted nowrap">AI 工具應用</label><div class="bar" data-pct="78"><i></i></div></div>
@@ -264,39 +244,22 @@
       </div>
     </section>
 
-    <!-- 經歷里程（保留你之前的排序＋新增） -->
+    <!-- 經歷里程：保留自動循環；新增「點擊切換下一格」 -->
     <section id="xp" class="container" style="padding:84px 0" data-section>
       <h2 class="title" style="margin-bottom:12px">經歷里程</h2>
       <div class="timeline">
-        <div class="reel" id="xpReel" aria-live="polite">
+        <div class="reel" id="xpReel" tabindex="0" role="button" aria-label="經歷列表，點擊可切換下一項">
           <div class="list" id="xpList">
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">餐飲業｜兼職</strong><div class="muted nowrap">約 5 年</div><p class="muted" style="margin:6px 0 0">半工半讀，理解前線營運與服務節奏。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">電子廠｜短期兼職</strong><div class="muted nowrap">約 3 個月</div><p class="muted" style="margin:6px 0 0">接觸製造現場流程，培養紀律與品質意識。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">會計實習生｜兼職</strong><div class="muted nowrap">5 個月</div><p class="muted" style="margin:6px 0 0">累積基本會計常識與文件流程協作。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">中租｜實習</strong><div class="muted nowrap">一段時間</div><p class="muted" style="margin:6px 0 0">理解金融服務實務；因理念不符未續任。</p></div></div>
-
-            <div class="item"><span class="dot"></span>
-              <div class="card step">
-                <strong class="nowrap">新山寬柔中學｜管樂團</strong>
-                <div class="muted nowrap">2014–2019（幹部 5 年）</div>
-                <p class="muted" style="margin:6px 0 0">參與 6 年；曾獲 <strong>台灣金獎一枚、馬來西亞金獎一枚</strong>。</p>
-              </div>
-            </div>
-
+            <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">新山寬柔中學｜管樂團</strong><div class="muted nowrap">2014–2019（幹部 5 年）</div><p class="muted" style="margin:6px 0 0">參與 6 年；曾獲 <strong>台灣金獎一枚、馬來西亞金獎一枚</strong>。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">國立中央大學 經濟系｜學士</strong><div class="muted nowrap">2021–2025（畢）</div><p class="muted" style="margin:6px 0 0">以經濟理論與資料視角研究市場與企業。</p></div></div>
-
-            <div class="item"><span class="dot"></span>
-              <div class="card step">
-                <strong class="nowrap">國立中央大學 僑生聯誼會｜副社長</strong>
-                <div class="muted nowrap">2021–2022</div>
-                <p class="muted" style="margin:6px 0 0">協調活動與對外溝通，帶領跨國僑生社群。</p>
-              </div>
-            </div>
-
+            <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">國立中央大學 僑生聯誼會｜副社長</strong><div class="muted nowrap">2021–2022</div><p class="muted" style="margin:6px 0 0">協調活動與對外溝通，帶領跨國僑生社群。</p></div></div>
             <div class="item"><span class="dot"></span><div class="card step"><strong class="nowrap">個人投資｜自營</strong><div class="muted nowrap">2021–至今</div><p class="muted" style="margin:6px 0 0">擅長市場/公司分析與風險控管；歷年平均報酬約 27%。</p></div></div>
           </div>
         </div>
-        <div class="muted" style="font-size:12px;margin-top:6px">滑鼠移上可暫停；系統偏好「減少動畫」會自動停用循環。</div>
       </div>
     </section>
 
@@ -304,21 +267,19 @@
     <section id="etoro" class="container" style="padding:84px 0" data-section>
       <div class="card pad">
         <h2 class="title">投資組合（eToro）</h2>
-        <p class="muted">以下為我的 eToro 公開頁面，點擊即可查看統計與持倉（無需登入）：</p>
         <div class="etoro" style="margin-top:12px">
-          <a class="card link g1" href="https://www.etoro.com/people/noobboy2001" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">個人頁面（總覽）</h3><p style="margin:0">追蹤與基本資訊</p></a>
-          <a class="card link g2" href="https://www.etoro.com/people/noobboy2001/stats" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資統計（Stats）</h3><p style="margin:0">收益率、回撤、風險分數</p></a>
-          <a class="card link g3" href="https://www.etoro.com/people/noobboy2001/portfolio" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資持倉（Portfolio）</h3><p style="margin:0">目前倉位與配置</p></a>
+          <a class="card link g1" href="https://www.etoro.com/people/noobboy2001" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">個人頁面</h3><p style="margin:0">總覽</p></a>
+          <a class="card link g2" href="https://www.etoro.com/people/noobboy2001/stats" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資統計</h3><p style="margin:0">收益率與風險</p></a>
+          <a class="card link g3" href="https://www.etoro.com/people/noobboy2001/portfolio" target="_blank" rel="noopener noreferrer"><h3 style="margin:0 0 6px">投資持倉</h3><p style="margin:0">倉位配置</p></a>
         </div>
       </div>
     </section>
 
-    <!-- Contact（互動） -->
+    <!-- Contact -->
     <section id="contact" class="container" style="padding:84px 0" data-section>
       <div class="contact-grid">
-        <div class="tile tilt" id="contactTile" tabindex="0" role="region" aria-labelledby="contactTitle" aria-describedby="tileHint">
+        <div class="tile tilt" id="contactTile" tabindex="0" role="region" aria-labelledby="contactTitle">
           <h2 class="title" id="contactTitle" style="margin-bottom:8px">聯絡方式</h2>
-          <p class="muted" id="tileHint">滑鼠或方向鍵可使卡片微傾斜；下方按鈕可複製或快速寄信。</p>
           <div class="copy-badge" style="margin-top:12px">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 8l-8 5l-8-5V6l8 5l8-5v2zM4 10l8 5l8-5v8H4v-8z"/></svg>
             <code id="emailText" dir="ltr">（載入中…）</code>
@@ -337,17 +298,14 @@
               下載 vCard
             </a>
           </div>
-          <p class="hint" id="fallbackHint" hidden style="margin-top:8px">若無法開啟郵件程式，已顯示 Email 可供複製。</p>
         </div>
 
         <div class="card pad">
-          <h3 class="title" style="font-size:24px;margin:0 0 8px">快速留言（寄到我的 Email）</h3>
-          <p class="muted" style="margin:0 0 12px">無需後端，直接用你的郵件軟體寄出。</p>
+          <h3 class="title" style="font-size:24px;margin:0 0 8px">快速留言（Email）</h3>
           <form class="form" id="mailForm" novalidate>
             <div class="fld"><label class="lbl" for="subj">主旨</label><input id="subj" name="subject" placeholder="例如：想與你交流投資觀點" maxlength="120" required aria-invalid="false" /><div class="err" id="errSubj">請填寫主旨</div></div>
             <div class="fld"><label class="lbl" for="msg">訊息內容</label><textarea id="msg" name="message" placeholder="寫下你的想法、問題或合作方向…" maxlength="1800" required aria-invalid="false"></textarea><div class="err" id="errMsg">請填寫訊息內容</div></div>
             <div class="actions"><button class="btn" type="reset">清除</button><button class="btn primary" type="submit">用郵件寄出</button></div>
-            <p class="hint">寄出後會開啟你的預設郵件程式（或網頁信箱）。</p>
           </form>
         </div>
       </div>
@@ -391,14 +349,19 @@
       ,io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelector("i").style.width=(e.target.getAttribute("data-pct")||0)+"%";io.unobserve(e.target)}})},{threshold:.4})
       ;bars.forEach(b=>io.observe(b))})();
 
-    /* 經歷：逐項上滑循環 */
-    (()=>{const reel=document.getElementById("xpReel"),list=document.getElementById("xpList");if(!reel||!list)return;let paused=false
+    /* 經歷：自動循環 + 點擊切換下一格 + 保留滑入暫停 */
+    (()=>{const reel=document.getElementById("xpReel"),list=document.getElementById("xpList");if(!reel||!list)return
+      ;let paused=false
       ;reel.addEventListener("mouseenter",()=>paused=true);reel.addEventListener("mouseleave",()=>paused=false)
       ;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return
-      ;const stepMs=3000;const step=()=>{if(paused)return;const first=list.firstElementChild;const h=first.getBoundingClientRect().height+16
+      ;const step=()=>{const first=list.firstElementChild;const h=first.getBoundingClientRect().height+16
         ;list.style.transition="transform .6s cubic-bezier(.22,1,.36,1)";list.style.transform=`translateY(${-h}px)`
         ;const onEnd=()=>{list.removeEventListener("transitionend",onEnd);list.appendChild(first);list.style.transition="none";list.style.transform="translateY(0)"};list.addEventListener("transitionend",onEnd)}
-      ;setInterval(step,stepMs)})();
+      ;const tick=()=>{if(!paused)step()}
+      ;let timer=setInterval(tick,3000)
+      ;reel.addEventListener("click",()=>{paused=true;step();setTimeout(()=>paused=false,200)})
+      ;reel.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();paused=true;step();setTimeout(()=>paused=false,200)}})
+      ;addEventListener("visibilitychange",()=>{if(document.hidden){clearInterval(timer)}else{timer=setInterval(tick,3000)}})})();
 
     /* Snackbar */
     const $snk=document.getElementById("snackbar");function toast(msg,ok=true){$snk.textContent=msg;$snk.style.borderColor=ok?'color-mix(in oklab,var(--ok) 60%,transparent)':'color-mix(in oklab,var(--bad) 60%,transparent)';$snk.classList.add("show");setTimeout(()=>{$snk.classList.remove("show")},1700)}
@@ -408,25 +371,21 @@
       ;const emailText=document.getElementById("emailText");emailText.textContent=email;emailText.parentElement.setAttribute("title",email)
       ;const mailHref=`mailto:${email}`;const mailBtn=document.getElementById("mailBtn");mailBtn.href=mailHref
       ;const mailtoBtn=document.getElementById("mailtoBtn");mailtoBtn.href=mailHref
-      ;document.getElementById("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(email);toast("Email 已複製到剪貼簿 ✔️")}catch{toast("複製失敗，請手動複製",false);document.getElementById("fallbackHint").hidden=false}})
-
-      const a=document.getElementById("vcfBtn")
-      ;const vcf=`BEGIN:VCARD
+      ;document.getElementById("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(email);toast("Email 已複製 ✔️")}catch{toast("複製失敗，請手動複製",false)}})
+      ;const a=document.getElementById("vcfBtn"),vcf=`BEGIN:VCARD
 VERSION:3.0
 N:潘;皇書;;;
 FN:潘皇書
 EMAIL;TYPE=INTERNET;TYPE=WORK:${email}
 NOTE:個人網站自介與投資交流
-END:VCARD`
-      ;a.href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcf)
-    })();
+END:VCARD`;a.href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcf)})();
 
-    /* 互動名片：滑鼠/鍵盤傾斜 */
+    /* 互動名片：滑鼠/鍵盤傾斜（維持，無多餘文字） */
     (()=>{const tile=document.getElementById("contactTile");const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;if(!tile||reduce)return
       ;tile.addEventListener("mousemove",e=>{const r=tile.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,rx=((y/r.height)-0.5)*-6,ry=((x/r.width)-0.5)*6
         ;tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;tile.style.setProperty("--mx",`${(x/r.width)*100}%`);tile.style.setProperty("--my",`${(y/r.height)*100}%`)})
       ;tile.addEventListener("mouseleave",()=>{tile.style.transform="none"})
-      ;tile.addEventListener("keydown",e=>{const keys={ArrowUp:[-4,0],ArrowDown:[4,0],ArrowLeft:[0,-4],ArrowRight:[0,4]};if(!(e.key in keys))return;const [rx,ry]=keys[e.key];tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;e.preventDefault()})
+      ;tile.addEventListener("keydown",e=>{const map={ArrowUp:[-4,0],ArrowDown:[4,0],ArrowLeft:[0,-4],ArrowRight:[0,4]};if(!(e.key in map))return;const [rx,ry]=map[e.key];tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;e.preventDefault()})
       ;tile.addEventListener("keyup",()=>{tile.style.transform="none"})})();
   </script>
 </body>
