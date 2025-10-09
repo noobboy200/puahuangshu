@@ -2,28 +2,67 @@
 <html lang="zh-Hant" class="no-js">
 <head>
   <!-- =============================
-       單檔個人網站｜v12（潘皇書）
-       更新重點：互動式「聯絡方式」區（傾斜卡片、複製 email、vCard 下載、快速郵件表單＋即時回饋）
-       保留：高對比深/淺切換、優雅里程循環、eToro 連結卡、中文不亂斷
+       單檔個人網站｜v13（潘皇書）
+       強化：A11y（aria-pressed/aria-expanded/鍵盤可用）、行動導覽（漢堡＋焦點陷阱）、
+       互動聯絡卡（鍵盤傾斜/複製/vCard/fallback）、對比微調、SEO/OG/Twitter/Schema、
+       content-visibility、email 前端組合防爬
        ============================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#0b0c10" />
   <title>潘皇書｜個人介紹｜投資與經歷</title>
-  <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）。自 2020 年投資至今，歷年平均報酬約 27%，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT、Gemini、Figma；學習前端與剪輯。歡迎交流市場觀點。" />
+  <meta name="description" content="潘皇書｜國立中央大學經濟系（2025）。自 2020 年投資至今，年均約 27%，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT、Gemini、Figma；學習前端與剪輯。歡迎交流市場觀點。" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="潘皇書｜個人介紹｜投資與經歷" />
+  <meta property="og:description" content="投資年均約 27%，擅長市場/公司分析。歡迎交流股票與市場觀點。" />
+  <meta property="og:image" content="data:image/svg+xml;charset=utf-8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230b0c10'/><text x='50%' y='50%' fill='%23ffffff' font-size='64' text-anchor='middle' font-family='system-ui'>潘皇書 · 個人介紹</text></svg>" />
+  <meta property="og:image:alt" content="潘皇書 個人介紹預覽圖" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon / PWA（最小化） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' width='64' height='64' fill='url(%23g)'/%3E%3Ctext x='50%' y='54%' font-size='32' text-anchor='middle' fill='white' font-family='system-ui'%3E潘%3C/text%3E%3C/svg%3E" />
+  <link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;%E6%BD%98%E7%9A%87%E6%9B%B8|%E5%80%8B%E4%BA%BA%E7%B6%B2&quot;,&quot;short_name&quot;:&quot;PH-Profile&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%230b0c10&quot;,&quot;theme_color&quot;:&quot;%230b0c10&quot;}" />
+
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"潘皇書",
+    "email":"mailto:hongrui169@gmail.com",
+    "alumniOf":{"@type":"CollegeOrUniversity","name":"國立中央大學"},
+    "description":"2025 年經濟系畢業，自 2020 年投資至今，年均約 27%，擅長市場與公司分析，熟悉 ChatGPT/Gemini、Figma，學習前端與剪輯。",
+    "url":"https://example.com/",
+    "sameAs":[
+      "https://www.etoro.com/people/noobboy2001",
+      "https://www.etoro.com/people/noobboy2001/stats",
+      "https://www.etoro.com/people/noobboy2001/portfolio"
+    ]
+  }
+  </script>
+
   <style>
     /* ===== Base / Tokens ===== */
-    *,*::before,*::after{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth} body{margin:0;font:16px/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg)}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg)}
     :root{--bg:#0b0c10;--bg-2:#0e1117;--card:#0f1218;--text:#f3f7fc;--muted:#a7b0be;--line:#1f2837;--brand:#22d3ee;--brand-2:#7c3aed;--accent:#f59e0b;--ok:#10b981;--bad:#ef4444;--shadow:0 14px 40px rgba(0,0,0,.22);--radius:20px;--header-h:76px}
     :root.light{--bg:#f6f9ff;--bg-2:#eef2fb;--card:#ffffff;--text:#0b1220;--muted:#334155;--line:#cbd5e1;--brand:#0ea5e9;--brand-2:#7c3aed;--accent:#b45309;--ok:#059669;--bad:#dc2626}
-    body::before{content:"";position:fixed;inset:-12%;z-index:-2;background:radial-gradient(1000px 640px at 110% -10%,color-mix(in oklab,var(--brand) 34%,transparent) 0%,transparent 60%),radial-gradient(1000px 640px at -10% -10%,color-mix(in oklab,var(--brand-2) 34%,transparent) 0%,transparent 60%),linear-gradient(var(--bg),var(--bg-2));filter:saturate(1.05) contrast(1.02)}
+    body::before{content:"";position:fixed;inset:-12%;z-index:-2;background:radial-gradient(1000px 640px at 110% -10%,color-mix(in oklab,var(--brand) 30%,transparent) 0%,transparent 60%),radial-gradient(1000px 640px at -10% -10%,color-mix(in oklab,var(--brand-2) 30%,transparent) 0%,transparent 60%),linear-gradient(var(--bg),var(--bg-2));filter:saturate(1.04) contrast(1.02)}
     body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.06;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHUlEQVQoU2NkwA7+Z2BgYGBgGIyBEUQ0GJgBAwMAAAHcAARkQH3yAAAAAElFTkSuQmCC');mix-blend-mode:overlay;pointer-events:none}
-    :focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,#fff 30%);outline-offset:2px} @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+    :focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,#fff 30%);outline-offset:2px}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+    @media (prefers-contrast:more){.toggle{border-color:color-mix(in oklab,var(--text) 50%,transparent)} .card{border-color:color-mix(in oklab,var(--text) 30%,transparent)}}
     [id]{scroll-margin-top:calc(var(--header-h) + 16px)}
+
     /* ===== Utilities ===== */
     .container{max-width:1180px;margin:0 auto;padding:0 22px}
     .grid{display:grid;gap:28px}
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
     .card{background:color-mix(in oklab,var(--card) 98%,transparent 2%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:saturate(1.06) blur(8px)}
     .pad{padding:28px}
     .title{font-size:38px;line-height:1.2;margin:0 0 16px}
@@ -32,18 +71,35 @@
     .muted{color:var(--muted)}
     .tag{font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid color-mix(in oklab,currentColor 18%,transparent);text-decoration:none;color:var(--text);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 82%,transparent),color-mix(in oklab,var(--card) 96%,transparent));box-shadow:0 8px 26px rgba(0,0,0,.25);transition:transform .18s ease,box-shadow .18s ease,background .24s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.35)} .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.35)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#fff}
     .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 90%,transparent 10%);font-size:12px;color:var(--muted);word-break:keep-all}
     .nowrap{white-space:nowrap;word-break:keep-all}
-    .kv-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .kv-item{padding:10px 12px;border-radius:12px;border:1px dashed var(--line);background:color-mix(in oklab,var(--card) 92%,transparent);display:flex;align-items:center;justify-content:space-between;word-break:keep-all}
-    /* ===== Header ===== */
-    header.site{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:70;background:linear-gradient(180deg,color-mix(in oklab,var(--bg) 90%,transparent),transparent);backdrop-filter:saturate(1.08) blur(10px);border-bottom:1px solid var(--line)}
+    .kv-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .kv-item{padding:10px 12px;border-radius:12px;border:1px dashed var(--line);background:color-mix(in oklab,var(--card) 92%,transparent);display:flex;align-items:center;justify-content:space-between;word-break:keep-all}
+
+    /* ===== Header / Nav ===== */
+    header.site{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:80;background:linear-gradient(180deg,color-mix(in oklab,var(--bg) 90%,transparent),transparent);backdrop-filter:saturate(1.08) blur(10px);border-bottom:1px solid var(--line)}
     .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px} .logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px color-mix(in oklab,var(--brand) 60%,transparent)}
-    .links{display:flex;align-items:center;gap:20px} .links a{color:var(--text);text-decoration:none;font-weight:800;opacity:.98;text-shadow:0 1px 0 rgba(0,0,0,.25)} .links a:hover{opacity:1}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px color-mix(in oklab,var(--brand) 60%,transparent)}
+    .links{display:flex;align-items:center;gap:20px}
+    .links a{color:var(--text);text-decoration:none;font-weight:800;opacity:.98;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+    .links a:hover{opacity:1}
     .toggle{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 18px;border-radius:14px;border:2px solid color-mix(in oklab,var(--text) 32%,transparent);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 55%,transparent),color-mix(in oklab,var(--card) 96%,transparent));cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.08);color:var(--text)!important;text-shadow:0 1px 0 rgba(0,0,0,.45)}
-    .toggle:hover{box-shadow:0 14px 34px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.1)} .toggle:focus-visible{box-shadow:0 0 0 3px color-mix(in oklab,var(--brand) 70%,#fff 30%)} .ico{width:22px;height:22px} .sun{display:none} .moon{display:inline-block} .light .sun{display:inline-block} .light .moon{display:none} .toggle span{font-weight:900;letter-spacing:.08em}
-    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));z-index:75}
+    .toggle:hover{box-shadow:0 14px 34px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.1)}
+    .toggle span{font-weight:900;letter-spacing:.08em}
+    .ico{width:22px;height:22px}
+    .sun{display:none}
+    .moon{display:inline-block}
+    .light .sun{display:inline-block}
+    .light .moon{display:none}
+    .hamburger{display:none;background:none;border:2px solid color-mix(in oklab,var(--text) 28%,transparent);border-radius:12px;padding:10px;color:var(--text)}
+    .mobile-panel{position:fixed;inset:0 0 auto auto;width:min(86vw,360px);height:100dvh;background:color-mix(in oklab,var(--card) 98%,transparent 2%);border-left:1px solid var(--line);box-shadow:-24px 0 60px rgba(0,0,0,.35);transform:translateX(100%);transition:transform .22s ease;display:flex;flex-direction:column;gap:10px;padding:18px;z-index:85}
+    .mobile-panel a{padding:12px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text)}
+    .mobile-panel.show{transform:none}
+    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));z-index:90}
+
     /* ===== Hero ===== */
     main{padding-top:calc(var(--header-h) + 34px)}
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
@@ -51,18 +107,29 @@
     .glass{border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 86%,transparent),color-mix(in oklab,var(--card) 96%,transparent));box-shadow:0 30px 60px rgba(0,0,0,.25),inset 0 0 0 1px color-mix(in oklab,#fff 6%,transparent);padding:22px}
     .avatar-xl{aspect-ratio:1/1;width:100%;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),transparent),conic-gradient(from 0deg,var(--brand),var(--brand-2),var(--accent),var(--brand));box-shadow:inset 0 0 40px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.25)}
     .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
     /* ===== About / Skills ===== */
     .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-    .bar{height:10px;border-radius:999px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid var(--line);overflow:hidden} .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0}
+    .bar{height:10px;border-radius:999px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid var(--line);overflow:hidden}
+    .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0}
+
     /* ===== Timeline ===== */
     .timeline{position:relative}
-    .reel{max-height:420px;overflow:hidden;border:1px dashed var(--line);border-radius:16px;background:color-mix(in oklab,var(--card) 92%,transparent);padding:12px;position:relative;mask-image:linear-gradient(to bottom,transparent 0,black 24px,black calc(100% - 24px),transparent 100%)} .list{display:flex;flex-direction:column;gap:16px;will-change:transform}
-    .item{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start} .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)} .card.step{padding:18px;border-radius:14px}
+    .reel{max-height:420px;overflow:hidden;border:1px dashed var(--line);border-radius:16px;background:color-mix(in oklab,var(--card) 92%,transparent);padding:12px;position:relative;mask-image:linear-gradient(to bottom,transparent 0,black 24px,black calc(100% - 24px),transparent 100%)}
+    .list{display:flex;flex-direction:column;gap:16px;will-change:transform}
+    .item{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
+    .dot{width:22px;height:22px;border-radius:999px;background:var(--bg);border:2px solid var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand) 20%,transparent)}
+    .card.step{padding:18px;border-radius:14px}
+
     /* ===== eToro ===== */
     .etoro{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-    .card.link{padding:22px;text-align:center;text-decoration:none;color:var(--text);transition:transform .25s ease,box-shadow .25s ease} .card.link:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(0,0,0,.35)}
-    .g1{background:linear-gradient(135deg,var(--brand)20%,var(--brand-2)80%)} .g2{background:linear-gradient(135deg,var(--brand-2)10%,var(--accent)90%)} .g3{background:linear-gradient(135deg,var(--accent)10%,var(--brand)90%)}
-    /* ===== Contact（全新互動版） ===== */
+    .card.link{padding:22px;text-align:center;text-decoration:none;color:var(--text);transition:transform .25s ease,box-shadow .25s ease}
+    .card.link:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(0,0,0,.35)}
+    .g1{background:linear-gradient(135deg,var(--brand)20%,var(--brand-2)80%)}
+    .g2{background:linear-gradient(135deg,var(--brand-2)10%,var(--accent)90%)}
+    .g3{background:linear-gradient(135deg,var(--accent)10%,var(--brand)90%)}
+
+    /* ===== Contact（互動/A11y 強化） ===== */
     .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
     .tilt{transform-style:preserve-3d;transition:transform .18s ease,box-shadow .18s ease}
     .tile{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:color-mix(in oklab,var(--card) 94%,transparent);box-shadow:0 12px 28px rgba(0,0,0,.22);padding:22px}
@@ -72,42 +139,84 @@
     .btn.minor{background:linear-gradient(180deg,color-mix(in oklab,var(--card) 70%,transparent),color-mix(in oklab,var(--card) 95%,transparent))}
     .copy-badge{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:8px 10px;background:color-mix(in oklab,var(--card) 88%,transparent);border:1px solid var(--line);font-weight:700}
     .copy-badge code{font-family:ui-monospace,Menlo,Consolas,monospace}
-    /* Quick Mail 表單 */
+
     .form{display:grid;gap:12px;margin-top:10px}
     .fld{position:relative}
-    .fld input,.fld textarea{width:100%;color:var(--text);background:color-mix(in oklab,var(--card) 90%,transparent);border:1px solid var(--line);border-radius:12px;padding:14px 14px 14px 14px;outline:none;transition:border-color .18s ease,box-shadow .18s ease}
+    .fld input,.fld textarea{width:100%;color:var(--text);background:color-mix(in oklab,var(--card) 90%,transparent);border:1px solid var(--line);border-radius:12px;padding:14px;outline:none;transition:border-color .18s ease,box-shadow .18s ease}
     .fld textarea{min-height:140px;resize:vertical}
     .fld input:focus,.fld textarea:focus{border-color:color-mix(in oklab,var(--brand) 50%,transparent);box-shadow:0 0 0 3px color-mix(in oklab,var(--brand) 25%,transparent)}
     .lbl{position:absolute;left:12px;top:10px;font-size:12px;color:var(--muted);padding:0 6px;background:color-mix(in oklab,var(--card) 98%,transparent);transform:translateY(-50%);pointer-events:none}
+    .err{font-size:12px;color:var(--bad);display:none;margin:4px 2px 0}
     .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .hint{font-size:12px;color:var(--muted)}
+
     /* Snackbar */
-    .snackbar{position:fixed;right:16px;bottom:16px;background:color-mix(in oklab,var(--card) 96%,transparent);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:0 10px 28px rgba(0,0,0,.3);opacity:0;transform:translateY(10px);transition:opacity .18s ease,transform .18s ease;z-index:90}
+    .snackbar{position:fixed;right:16px;bottom:16px;background:color-mix(in oklab,var(--card) 96%,transparent);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:0 10px 28px rgba(0,0,0,.3);opacity:0;transform:translateY(10px);transition:opacity .18s ease,transform .18s ease;z-index:95}
     .snackbar.show{opacity:1;transform:none}
-    /* Footer / RWD */
-    footer{padding:44px 0;color:var(--muted);border-top:1px solid var(--line);text-align:center}
-    @media(max-width:980px){.hero{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
+
+    /* RWD */
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .links{display:none}
+      .hamburger{display:inline-flex}
+    }
   </style>
 </head>
 <body>
-  <div class="progress" id="progressBar"></div>
+  <!-- 進度條 -->
+  <div class="progress" id="progressBar" aria-hidden="true"></div>
+
+  <!-- Header -->
   <header class="site" role="banner">
     <div class="container nav">
-      <div class="brand"><b class="logo" aria-hidden="true"></b><a href="#home" style="color:var(--text);text-decoration:none;font-weight:900">潘皇書｜個人介紹</a></div>
-      <nav class="links" aria-label="主導覽"><a href="#about">關於</a><a href="#skills">技能</a><a href="#xp">經歷</a><a href="#etoro">投資</a><a href="#contact">聯絡</a></nav>
-      <button class="toggle" id="themeBtn" aria-label="切換深/淺模式" type="button"><svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg><svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2m0 16v2M4 12H2m20 0h-2M18.36 5.64l1.41-1.41M4.22 19.78l1.41-1.41M18.36 18.36l1.41 1.41M4.22 4.22l1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>深/淺</span></button>
+      <div class="brand">
+        <b class="logo" aria-hidden="true"></b>
+        <a href="#home" style="color:var(--text);text-decoration:none;font-weight:900">潘皇書｜個人介紹</a>
+      </div>
+
+      <nav class="links" aria-label="主導覽">
+        <a href="#about">關於</a><a href="#skills">技能</a><a href="#xp">經歷</a><a href="#etoro">投資</a><a href="#contact">聯絡</a>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="toggle" id="themeBtn" aria-label="切換深/淺模式" aria-pressed="false" title="切換深/淺模式" type="button">
+          <svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/></svg>
+          <svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2m0 16v2M4 12H2m20 0h-2M18.36 5.64l1.41-1.41M4.22 19.78l1.41-1.41M18.36 18.36l1.41 1.41M4.22 4.22l1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>深/淺</span>
+        </button>
+        <button id="hamburger" class="hamburger" aria-label="開啟導覽選單" aria-controls="mobilePanel" aria-expanded="false">
+          ☰
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- Mobile panel -->
+  <aside id="mobilePanel" class="mobile-panel" aria-hidden="true">
+    <a href="#about">關於</a>
+    <a href="#skills">技能</a>
+    <a href="#xp">經歷</a>
+    <a href="#etoro">投資</a>
+    <a href="#contact">聯絡</a>
+    <button id="closePanel" class="btn" type="button" style="margin-top:auto">關閉</button>
+  </aside>
+
+  <!-- Main -->
   <main id="home" role="main">
     <!-- Hero -->
-    <section class="container" style="padding:calc(var(--header-h) + 36px) 0 72px">
+    <section class="container" style="padding:calc(var(--header-h) + 36px) 0 72px" data-section>
       <div class="hero">
         <div>
           <span class="tag">自我介紹｜Profile</span>
           <h1>你好，我是<span class="nowrap">潘皇書</span>。</h1>
-          <p class="lead" style="max-width:66ch">2025 年畢業於國立中央大學經濟系。自 2020 年開始個人投資，歷年平均報酬約 <strong>27%</strong>，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT 與 Gemini，正在學習前端（HTML/CSS/JS）與 Figma，也具備基本剪輯能力。歡迎與我交流股票與市場觀點。</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px"><a href="#contact" class="btn primary">聯絡我</a><a class="btn" href="mailto:hongrui169@gmail.com">直接寄信</a><a class="btn" href="https://www.etoro.com/people/noobboy2001" target="_blank" rel="noopener noreferrer">eToro 公開帳號</a></div>
+          <p class="lead" style="max-width:62ch">2025 年畢業於國立中央大學經濟系。自 2020 年開始個人投資，歷年平均報酬約 <strong>27%</strong>，擅長市場與公司分析。中文精通、英文中等、臺語/粵語入門。熟悉 ChatGPT 與 Gemini，正在學習前端（HTML/CSS/JS）與 Figma，也具備基本剪輯能力。歡迎與我交流股票與市場觀點。</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+            <a href="#contact" class="btn primary">聯絡我</a>
+            <a class="btn" id="mailBtn" href="#">直接寄信</a>
+            <a class="btn" href="https://www.etoro.com/people/noobboy2001" target="_blank" rel="noopener noreferrer">eToro 公開帳號</a>
+          </div>
           <div class="kpis" style="margin-top:22px">
             <div class="kv-item"><span class="muted nowrap">投資平均報酬</span><strong class="nowrap">≈ 27% / 年</strong></div>
             <div class="kv-item"><span class="muted nowrap">AI 工具熟練</span><strong class="nowrap">中上（ChatGPT/Gemini）</strong></div>
@@ -127,8 +236,8 @@
     </section>
 
     <!-- About / Skills -->
-    <section id="about" class="container" style="padding:84px 0">
-      <div class="grid" style="grid-template-columns:1.1fr .9fr">
+    <section id="about" class="container" style="padding:84px 0" data-section>
+      <div class="grid-2">
         <div class="card pad">
           <h2 class="title">關於我</h2>
           <p class="subtitle">把數據與邏輯轉成可執行的投資判斷與學習路線。</p>
@@ -143,7 +252,9 @@
 
         <div id="skills" class="card pad">
           <h2 class="title">技能與熟練度</h2>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px"><span class="chip">中文（精通）</span><span class="chip">英文（中等）</span><span class="chip">臺語/粵語（入門）</span><span class="chip">市場/公司分析</span><span class="chip">投資策略</span><span class="chip nowrap">AI 工具應用（中上）</span><span class="chip">Figma（學習中）</span><span class="chip">影片剪輯（基礎）</span><span class="chip nowrap">前端：HTML/CSS/JS（初學）</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px">
+            <span class="chip">中文（精通）</span><span class="chip">英文（中等）</span><span class="chip">臺語/粵語（入門）</span><span class="chip">市場/公司分析</span><span class="chip">投資策略</span><span class="chip nowrap">AI 工具應用（中上）</span><span class="chip">Figma（學習中）</span><span class="chip">影片剪輯（基礎）</span><span class="chip nowrap">前端：HTML/CSS/JS（初學）</span>
+          </div>
           <div class="in"><label class="muted nowrap">市場/公司分析</label><div class="bar" data-pct="88"><i></i></div></div>
           <div class="in"><label class="muted nowrap">AI 工具應用</label><div class="bar" data-pct="78"><i></i></div></div>
           <div class="in"><label class="muted nowrap">Figma / 視覺</label><div class="bar" data-pct="60"><i></i></div></div>
@@ -152,8 +263,8 @@
       </div>
     </section>
 
-    <!-- 經歷里程（優雅循環上滑） -->
-    <section id="xp" class="container" style="padding:84px 0">
+    <!-- 經歷里程 -->
+    <section id="xp" class="container" style="padding:84px 0" data-section>
       <h2 class="title" style="margin-bottom:12px">經歷里程</h2>
       <div class="timeline">
         <div class="reel" id="xpReel" aria-live="polite">
@@ -170,8 +281,8 @@
       </div>
     </section>
 
-    <!-- eToro：僅連結卡 -->
-    <section id="etoro" class="container" style="padding:84px 0">
+    <!-- eToro：連結卡 -->
+    <section id="etoro" class="container" style="padding:84px 0" data-section>
       <div class="card pad">
         <h2 class="title">投資組合（eToro）</h2>
         <p class="muted">以下為我的 eToro 公開頁面，點擊即可查看統計與持倉（無需登入）：</p>
@@ -183,25 +294,25 @@
       </div>
     </section>
 
-    <!-- Contact：互動版 -->
-    <section id="contact" class="container" style="padding:84px 0">
+    <!-- Contact：互動＋可及性 -->
+    <section id="contact" class="container" style="padding:84px 0" data-section>
       <div class="contact-grid">
-        <!-- 左側：互動卡（傾斜、複製、vCard） -->
-        <div class="tile tilt" id="contactTile" aria-describedby="tileHint">
-          <h2 class="title" style="margin-bottom:8px">聯絡方式</h2>
-          <p class="muted" id="tileHint">滑鼠移動有細微傾斜；點按可快速複製或寄信。</p>
+        <!-- 互動卡 -->
+        <div class="tile tilt" id="contactTile" tabindex="0" role="region" aria-labelledby="contactTitle" aria-describedby="tileHint">
+          <h2 class="title" id="contactTitle" style="margin-bottom:8px">聯絡方式</h2>
+          <p class="muted" id="tileHint">滑鼠或方向鍵可使卡片微傾斜；下方按鈕可複製或快速寄信。</p>
 
           <div class="copy-badge" style="margin-top:12px">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 8l-8 5l-8-5V6l8 5l8-5v2zM4 10l8 5l8-5v8H4v-8z"/></svg>
-            <code>hongrui169@gmail.com</code>
+            <code id="emailText" dir="ltr">（載入中…）</code>
           </div>
 
-          <div class="contact-row">
+          <div class="contact-row" style="margin-top:12px">
             <button class="btn icon primary" id="copyBtn" type="button" aria-label="複製 Email">
               <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12z"/><path fill="currentColor" d="M20 5H8a2 2 0 0 0-2 2v14h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 4l-6 3.75L8 9V7l6 3.75L20 7z"/></svg>
               複製 Email
             </button>
-            <a class="btn icon" href="mailto:hongrui169@gmail.com" aria-label="開啟郵件軟體">
+            <a class="btn icon" id="mailtoBtn" href="#" aria-label="開啟郵件軟體">
               <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 8l8 5l8-5v8H4z"/><path fill="currentColor" d="M20 6H4l8 5z"/></svg>
               開啟郵件
             </a>
@@ -211,21 +322,23 @@
             </a>
           </div>
 
-          <p class="hint" style="margin-top:8px">我通常於工作日回覆，若未回請再提醒一次 🙌</p>
+          <p class="hint" id="fallbackHint" hidden style="margin-top:8px">若無法開啟郵件程式，已顯示 Email 可供複製。</p>
         </div>
 
-        <!-- 右側：快速郵件（mailto） -->
+        <!-- 快速郵件（mailto） -->
         <div class="card pad">
           <h3 class="title" style="font-size:24px;margin:0 0 8px">快速留言（寄到我的 Email）</h3>
-          <p class="muted" style="margin:0 0 12px">不需後端，直接用你的郵件軟體寄出。</p>
-          <form class="form" id="mailForm">
+          <p class="muted" style="margin:0 0 12px">無需後端，直接用你的郵件軟體寄出。</p>
+          <form class="form" id="mailForm" novalidate>
             <div class="fld">
               <label class="lbl" for="subj">主旨</label>
-              <input id="subj" name="subject" placeholder="例如：想與你交流投資觀點" maxlength="120" />
+              <input id="subj" name="subject" placeholder="例如：想與你交流投資觀點" maxlength="120" required aria-invalid="false" />
+              <div class="err" id="errSubj">請填寫主旨</div>
             </div>
             <div class="fld">
               <label class="lbl" for="msg">訊息內容</label>
-              <textarea id="msg" name="message" placeholder="寫下你的想法、問題或合作方向…" maxlength="1800"></textarea>
+              <textarea id="msg" name="message" placeholder="寫下你的想法、問題或合作方向…" maxlength="1800" required aria-invalid="false"></textarea>
+              <div class="err" id="errMsg">請填寫訊息內容</div>
             </div>
             <div class="actions">
               <button class="btn" type="reset">清除</button>
@@ -238,7 +351,7 @@
     </section>
 
     <!-- 免責與隱私 -->
-    <section class="container" style="padding:84px 0">
+    <section class="container" style="padding:84px 0" data-section>
       <div class="card pad">
         <h2 class="title">免責與隱私</h2>
         <p class="muted">本網站內容僅供個人介紹與投資學習交流用途，不構成任何投資建議或承諾。投資有風險，過去績效不代表未來表現，請自行評估與承擔風險。若您主動提供聯絡資訊，僅用於回覆與後續溝通，不另作其他用途。</p>
@@ -251,30 +364,79 @@
   <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
 
   <script>
-    /* 主題切換 */
-    (()=>{const r=document.documentElement,get=()=>localStorage.getItem("theme-mode"),set=v=>localStorage.setItem("theme-mode",v),apply=v=>{r.classList.toggle("light",v==="light");r.classList.toggle("dark",v==="dark")};let v=get();if(!v){v=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';set(v)}apply(v);document.getElementById("themeBtn").addEventListener("click",()=>{v=r.classList.contains("light")?"dark":"light";apply(v);set(v)})})();
-    /* 進度條＋年份 */
-    (()=>{document.getElementById("year").textContent=new Date().getFullYear();const bar=document.getElementById("progressBar");const onScroll=()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(Math.max(0,Math.min(1,h? s/h:0))*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
-    /* 技能條一次性填滿 */
-    (()=>{const bars=[...document.querySelectorAll(".bar")],io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelector("i").style.width=(e.target.getAttribute("data-pct")||0)+"%";io.unobserve(e.target)}})},{threshold:.4});bars.forEach(b=>io.observe(b))})();
-    /* 經歷里程：逐項上滑循環 */
-    (()=>{const reel=document.getElementById("xpReel"),list=document.getElementById("xpList");if(!reel||!list)return;let paused=false;reel.addEventListener("mouseenter",()=>paused=true);reel.addEventListener("mouseleave",()=>paused=false);const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(reduce)return;const stepMs=3000;const step=()=>{if(paused)return;const first=list.firstElementChild;const h=first.getBoundingClientRect().height+16;list.style.transition="transform .6s cubic-bezier(.22,1,.36,1)";list.style.transform=`translateY(${-h}px)`;const onEnd=()=>{list.removeEventListener("transitionend",onEnd);list.appendChild(first);list.style.transition="none";list.style.transform="translateY(0)"};list.addEventListener("transitionend",onEnd)};setInterval(step,stepMs)})();
-    /* ===== 聯絡方式互動 ===== */
+    /* ===== 年份、進度條、content-visibility ===== */
+    (()=>{document.getElementById("year").textContent=new Date().getFullYear()
+      ;document.querySelectorAll("[data-section]").forEach(s=>s.style.contentVisibility="auto")
+      ;const bar=document.getElementById("progressBar");const onScroll=()=>{const s=scrollY;const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(Math.max(0,Math.min(1,h? s/h:0))*100).toFixed(2)+"%"};onScroll();addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll)})();
+
+    /* ===== 主題切換（aria-pressed 同步） ===== */
+    (()=>{const r=document.documentElement,btn=document.getElementById("themeBtn")
+      ,get=()=>localStorage.getItem("theme-mode"),set=v=>localStorage.setItem("theme-mode",v)
+      ,apply=v=>{r.classList.toggle("light",v==="light");r.classList.toggle("dark",v==="dark");btn.setAttribute("aria-pressed",v==="dark"?"true":"false")}
+      ;let v=get();if(!v){v=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';set(v)}apply(v)
+      ;btn.addEventListener("click",()=>{v=r.classList.contains("light")?"dark":"light";apply(v);set(v)})})();
+
+    /* ===== 行動導覽：漢堡＋焦點陷阱 ===== */
+    (()=>{const panel=document.getElementById("mobilePanel"),openBtn=document.getElementById("hamburger"),closeBtn=document.getElementById("closePanel")
+      ;const focusables=()=>panel.querySelectorAll('a,button');let lastActive=null
+      ;function open(){lastActive=document.activeElement;panel.classList.add("show");panel.setAttribute("aria-hidden","false");openBtn.setAttribute("aria-expanded","true");focusables()[0].focus();document.addEventListener("keydown",trap)}
+      function close(){panel.classList.remove("show");panel.setAttribute("aria-hidden","true");openBtn.setAttribute("aria-expanded","false");document.removeEventListener("keydown",trap);lastActive&&lastActive.focus()}
+      function trap(e){if(e.key!=="Tab")return;const f=[...focusables()];if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault()}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault()}}
+      openBtn.addEventListener("click",open);closeBtn.addEventListener("click",close);panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));addEventListener("keydown",e=>{if(e.key==="Escape"&&panel.classList.contains("show"))close()})})();
+
+    /* ===== 技能條一次性填滿 ===== */
+    (()=>{const bars=[...document.querySelectorAll(".bar")]
+      ,io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelector("i").style.width=(e.target.getAttribute("data-pct")||0)+"%";io.unobserve(e.target)}})},{threshold:.4})
+      ;bars.forEach(b=>io.observe(b))})();
+
+    /* ===== 經歷：逐項上滑循環 ===== */
+    (()=>{const reel=document.getElementById("xpReel"),list=document.getElementById("xpList");if(!reel||!list)return;let paused=false
+      ;reel.addEventListener("mouseenter",()=>paused=true);reel.addEventListener("mouseleave",()=>paused=false)
+      ;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return
+      ;const stepMs=3000;const step=()=>{if(paused)return;const first=list.firstElementChild;const h=first.getBoundingClientRect().height+16
+        ;list.style.transition="transform .6s cubic-bezier(.22,1,.36,1)";list.style.transform=`translateY(${-h}px)`
+        ;const onEnd=()=>{list.removeEventListener("transitionend",onEnd);list.appendChild(first);list.style.transition="none";list.style.transform="translateY(0)"};list.addEventListener("transitionend",onEnd)}
+      ;setInterval(step,stepMs)})();
+
+    /* ===== Snackbar ===== */
     const $snk=document.getElementById("snackbar");function toast(msg,ok=true){$snk.textContent=msg;$snk.style.borderColor=ok?'color-mix(in oklab,var(--ok) 60%,transparent)':'color-mix(in oklab,var(--bad) 60%,transparent)';$snk.classList.add("show");setTimeout(()=>{$snk.classList.remove("show")},1700)}
-    // 傾斜效果
-    (()=>{const tile=document.getElementById("contactTile");const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!tile||reduce)return;tile.addEventListener("mousemove",e=>{const r=tile.getBoundingClientRect();const x=e.clientX-r.left;const y=e.clientY-r.top;const rx=((y/r.height)-0.5)*-6;const ry=((x/r.width)-0.5)*6;tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;tile.style.setProperty("--mx",`${(x/r.width)*100}%`);tile.style.setProperty("--my",`${(y/r.height)*100}%`)});tile.addEventListener("mouseleave",()=>{tile.style.transform="none"})})();
-    // 複製 email
-    (()=>{const btn=document.getElementById("copyBtn");if(!btn||!navigator.clipboard)return;btn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText("hongrui169@gmail.com");toast("Email 已複製到剪貼簿 ✔️")}catch{toast("複製失敗，請手動複製",false)}})})();
-    // 下載 vCard（動態生成 data URI）
-    (()=>{const a=document.getElementById("vcfBtn");if(!a)return;const vcf=`BEGIN:VCARD
+
+    /* ===== Email 前端組合＋Copy / Mailto / vCard ===== */
+    (()=>{const user="hongrui169",dom="@gmail.com",email=user+dom
+      ;const emailText=document.getElementById("emailText");emailText.textContent=email;emailText.parentElement.setAttribute("title",email)
+      ;const mailHref=`mailto:${email}`;const mailBtn=document.getElementById("mailBtn");mailBtn.href=mailHref
+      ;const mailtoBtn=document.getElementById("mailtoBtn");mailtoBtn.href=mailHref
+      ;document.getElementById("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(email);toast("Email 已複製到剪貼簿 ✔️")}catch{toast("複製失敗，請手動複製",false);document.getElementById("fallbackHint").hidden=false}})
+
+      // 下載 vCard（動態）
+      const a=document.getElementById("vcfBtn")
+      ;const vcf=`BEGIN:VCARD
 VERSION:3.0
 N:潘;皇書;;;
 FN:潘皇書
-EMAIL;TYPE=INTERNET;TYPE=WORK:hongrui169@gmail.com
+EMAIL;TYPE=INTERNET;TYPE=WORK:${email}
 NOTE:個人網站自介與投資交流
-END:VCARD`;a.href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcf)})();
-    // 快速郵件（mailto）
-    (()=>{const form=document.getElementById("mailForm");if(!form)return;form.addEventListener("submit",e=>{e.preventDefault();const subj=form.subject.value.trim();const msg=form.message.value.trim();if(!subj||!msg){toast("請填寫主旨與訊息內容",false);return}const body=msg+"\n\n—— 來自網站聯絡表單";const href=`mailto:hongrui169@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;window.location.href=href;toast("已開啟郵件程式")} )})();
+END:VCARD`
+      ;a.href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcf)
+    })();
+
+    /* ===== 快速郵件表單：required + 內嵌錯誤訊息 ===== */
+    (()=>{const f=document.getElementById("mailForm"),subj=f.subject,msg=f.message,errS=document.getElementById("errSubj"),errM=document.getElementById("errMsg")
+      ;function val(){let ok=true;if(!subj.value.trim()){errS.style.display="block";subj.setAttribute("aria-invalid","true");ok=false}else{errS.style.display="none";subj.setAttribute("aria-invalid","false")}
+        if(!msg.value.trim()){errM.style.display="block";msg.setAttribute("aria-invalid","true");ok=false}else{errM.style.display="none";msg.setAttribute("aria-invalid","false")}
+        return ok}
+      ;f.addEventListener("submit",e=>{e.preventDefault();if(!val()){toast("請補齊必填欄位",false);return}
+        const to=document.getElementById("emailText").textContent.trim(),body=msg.value.trim()+"\n\n—— 來自網站聯絡表單"
+        ;location.href=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subj.value.trim())}&body=${encodeURIComponent(body)}`;toast("已開啟郵件程式")})
+      ;subj.addEventListener("input",val);msg.addEventListener("input",val)})();
+
+    /* ===== 互動名片：滑鼠/鍵盤傾斜 ===== */
+    (()=>{const tile=document.getElementById("contactTile");const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;if(!tile||reduce)return
+      ;tile.addEventListener("mousemove",e=>{const r=tile.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,rx=((y/r.height)-0.5)*-6,ry=((x/r.width)-0.5)*6
+        ;tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;tile.style.setProperty("--mx",`${(x/r.width)*100}%`);tile.style.setProperty("--my",`${(y/r.height)*100}%`)})
+      ;tile.addEventListener("mouseleave",()=>{tile.style.transform="none"})
+      ;tile.addEventListener("keydown",e=>{const keys={ArrowUp:[-4,0],ArrowDown:[4,0],ArrowLeft:[0,-4],ArrowRight:[0,4]};if(!(e.key in keys))return;const [rx,ry]=keys[e.key];tile.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;e.preventDefault()})
+      ;tile.addEventListener("keyup",()=>{tile.style.transform="none"})})();
   </script>
 </body>
 </html>
